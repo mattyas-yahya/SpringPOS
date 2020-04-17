@@ -1,7 +1,7 @@
 $(document).ready(function()
       {
           $.ajax({
-               url: 'http://localhost:8081/BarangAll',//http://localhost:1111/BarangAll
+               url: 'https://squarepos.herokuapp.com/BarangAll',//http://localhost:1111/BarangAll
                success: function(data)
                 {
                  data.forEach(function(dt)
