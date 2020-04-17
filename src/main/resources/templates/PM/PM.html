@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="utf-8" />
+    <title>Data Preventive Maintenance</title>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+    <h2>
+        Data Preventive Maintenance
+        <small>Data Master Preventive Maintenance</small>
+    </h2>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Data Spare Part</li>
+    </ol>
+</section>
+
+<div layout:fragment="content">
+    <div class="col-md-12">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+                <li ><a href="#tab_2" data-toggle="tab">General</a></li>
+            </ul>
+            <span th:replace="PM/modal_asset_pm"/>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+                    <div class='box-body pad'>
+                        <div class="panel panel-default">
+                            <table id="tabelpm" class="table table-striped table-bordered table-hover"  cellspacing="0"
+                                   width="100%" role="grid" aria-describedby="example_info"
+                                   style="width: 100%;">
+                                <!-- Header Table -->
+                                <thead>
+                                <tr>
+                                    <th>id_</th>
+                                    <th>id_asset</th>
+                                    <th>Kode Asset</th>
+                                    <th>Deskripsi PM</th>
+
+                                </tr>
+                                </thead>
+                                <!-- Footer Table -->
+                            </table>
+
+                            <input type=hidden id="a" name="a" value=""/>
+                            <input type=hidden id="b" name="b" value=""/>
+                            <input type=hidden id="c" name="c" value=""/>
+                            <input type=hidden id="d" name="d" value=""/>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_2">
+                    <form data-toggle="validator" role="form" th:object="${PreventiveMaintenance}" th:action="@{/pm_komit}" method="post">
+                        <div class="col-md-12">
+                            <div class='box-header'>
+                                <div class="box-body">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group" hidden>
+                                            <label for="nama">id_pm</label>
+                                            <input type="text" class="form-control" th:field="*{id_pm}" id="id_pm" readonly />
+                                        </div>
+
+                                        <div class="form-group" hidden>
+                                            <label for="nama">id_a</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-id-card"></i>
+                                                </div>
+                                                <input type="text" required="true" class="form-control" th:field="*{id_asset}" id="id_asset" />
+                                                <span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modaspm" data-toggle="modal">Select</button>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="nama">deskripsi</label>
+                                            <input type="text" required="true" class="form-control" th:field="*{deskripsi}" id="deskripsi" />
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="nama">Kode Asset (Parent)</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-id-card"></i>
+                                                </div>
+                                                <input type="text" class="form-control" th:field="*{kode_asset}" id="kode_asset" name="kode_asset" readonly />
+                                                <span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modaspm" data-toggle="modal">Select</button>
+</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger btn-lg" id="simpan_pm" type="submit" value="pm_simpan" name="pm_action"><b class="glyphicon glyphicon-floppy-disk"></b> Save</button>
+                        <!--<button class="btn btn-vimeo btn-md"  type="submit" value="pm_ubah" name="pm_action">edit</button>-->
+                        <button class="btn btn-warning btn-lg"  type="submit" value="pm_hapus" name="pm_action"><b class="glyphicon glyphicon-trash"></b> Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

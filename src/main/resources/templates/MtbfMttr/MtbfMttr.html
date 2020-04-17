@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>MTBF & MTTR </title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+<h2>
+Data MTBF
+<small>Form Control</small>
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Data Asset</li>
+</ol>
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="box">
+<div class="box-header">
+<h2 class="box-title">Fix Asset</h2>
+
+<div class="box-tools pull-right">
+<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+</button>
+<div class="btn-group">
+<button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+<i class="fa fa-wrench"></i></button>
+<ul class="dropdown-menu" role="menu">
+
+<li class="divider"></li>
+</ul>
+</div>
+<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+</div>
+</div>
+<div class="box-body">
+
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+<li ><a id="tab_3x" href="#tab_3" data-toggle="tab">History Maintenance</a></li>
+</ul>
+<div class="tab-content">
+
+
+
+<div class="tab-pane active" id="tab_1">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelmtbf" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>Id_MtbfMttr</th>
+<th>id_spare_part</th>
+<th>Asset Code</th>
+<th> Part / Article Code </th>
+<th>Reference</th>
+<th> Note</th>
+<th>Date</th>
+<th>Production Time (Hours)</th>
+<th>Down Time (Hours)</th>
+<th>Breakdown</th>
+<th>MTBF</th>
+<th>MTTR</th>
+
+</tr>
+</thead>
+<!-- Footer Table -->
+</table>
+
+<input type=hidden id="a" name="a" value=""/>
+<input type=hidden id="b" name="b" value=""/>
+<input type=hidden id="c" name="c" value=""/>
+<input type=hidden id="d" name="d" value=""/>
+<input type=hidden id="e" name="e" value=""/>
+<input type=hidden id="f" name="f" value=""/>
+<input type=hidden id="g" name="g" value=""/>
+<input type=hidden id="h" name="h" value=""/>
+<input type=hidden id="i" name="i" value=""/>
+<input type=hidden id="j" name="j" value=""/>
+<input type=hidden id="k" name="k" value=""/>
+    <input type=hidden id="l" name="l" value=""/>
+
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2">
+<form data-toggle="validator" role="form" th:object="${MtbfMttr}" th:action="@{/mt_komit}" method="post">
+<div class="col-md-12">
+<div class='box-header'>
+<div class="box-body">
+
+<div class="col-md-12">
+
+<table class="table table-striped table-bordered table-hover">
+
+<tr hidden>
+<td>
+<div class="form-group" hidden>
+<label for="nama">Id_MtbfMttr</label>
+<input type="text" class="form-control" th:field="*{Id_MtbfMttr}" id="Id_MtbfMttr" readonly />
+</div>
+</td>
+
+<td>
+<div class="form-group" hidden>
+<label for="nama">id_spare_part</label>
+<input type="text" class="form-control" th:field="*{id_spare_part}" id="id_spare_part" readonly />
+</div>
+</td>
+</tr>
+
+    <tr>
+        <td> <div class="form-group">
+            <label for="nama">Reference</label>
+            <input type="text" class="form-control" required="true" th:field="*{Referensi}" id="Referensi" name="Referensi" />
+        </div></td>
+        <td>
+            <div class="form-group">
+                <label for="nama">Note</label>
+                <input type="text" class="form-control" required="true" th:field="*{Keterangan}" id="Keterangan" name="Keterangan" />
+            </div>
+        </td>
+    </tr>
+
+<tr>
+<td>  <div class="form-group">
+<label for="nama"> Asset Code (Parent)</label>
+<input type="text" required="true" class="form-control" th:field="*{kode_asset}" id="kode_asset" name="kode_asset" />
+</div></td>
+
+<td> <div class="form-group">
+<label class="text-red" for="nama"> <dt>Spare / Part Code (Klik untuk detail)</dt></label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" class="form-control" th:field="*{kode_spare_part}" id="kode_spare_part" name="kode_spare_part" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modalsafety" data-toggle="modal">Select</button>
+</span>
+</div>
+</div></td>
+</tr>
+
+<tr>
+<td>
+<div class="form-group">
+<label for="nama">Date</label>
+<input type="text" class="form-control" required="true" th:field="*{tgl_}" id="tgl_" name="tgl_" />
+</div>
+</td>
+
+<td>
+<div class="form-group">
+<label for="nama"> Production Time (Hours) </label>
+<input type="text" class="form-control" required="true" th:field="*{prod_time}" id="prod_time" name="prod_time" />
+</div>
+</td>
+
+</tr>
+
+<tr>
+<td>   <div class="form-group">
+<label for="nama">Down Time (Hours)</label>
+<input type="text" class="form-control" required="true" th:field="*{down_time}" id="down_time" name="down_time" />
+</div></td>
+<td> <div class="form-group">
+<label for="nama">Breakdowns (Hours)</label>
+<input type="text" class="form-control" required="true" th:field="*{breakdowns}" id="breakdowns" name="breakdowns" />
+</div></td>
+</tr>
+
+<tr>
+<td>   <div class="form-group">
+<label for="nama">MTBF</label>
+<input type="text" class="form-control" required="true" th:field="*{mtbf}" id="mtbf" name="mtbf" />
+</div></td>
+<td><div class="form-group">
+<label for="nama">MTTR</label>
+<input type="text" required="true" class="form-control" th:field="*{mttr}" id="mttr" name="mttr"/>
+</div></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+</div>
+</div>
+<button class="btn btn-warning btn-lg" id="simpan_asset"  type="submit" value="mt_simpan" name="mt_action">Post</button>
+<button class="btn btn-danger btn-lg"  type="submit" value="mt_hapus" name="mt_action">delete</button>
+</form>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>

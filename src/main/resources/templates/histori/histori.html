@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html layout:decorate="layout"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="utf-8"/>
+    <title>Work Order</title>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+    <h2>
+        Log Work Order
+        <small>Log Work Order</small>
+    </h2>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Data Work Order</li>
+    </ol>
+</section>
+
+<div layout:fragment="content">
+
+    <div class="col-md-12">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#tab_1">Overview</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+                    <div class='box-body pad'>
+                        <div class="panel panel-default">
+                            <table aria-describedby="example_info" cellspacing="0"
+                                   class="table table-striped table-bordered table-hover"
+                                   id="tabel_log_wo" role="grid" style="width: 100%;"
+                                   width="100%">
+                                <!-- Header Table -->
+                                <thead>
+                                <tr>
+                                    <th>Wo ID</th>
+                                    <th>Asset Id</th>
+                                    <th>PM ID</th>
+                                    <th>Dept Id</th>
+                                    <th>Wo Code</th>
+                                    <th>Dept Name</th>
+                                    <th>Issue</th>
+                                    <th>Asset Code</th>
+                                    <th>Location</th>
+                                    <th>Job Status</th>
+                                    <th>Priority</th>
+                                    <th>Action</th>
+                                    <th>Job Category</th>
+                                    <th> Created Date</th>
+                                    <th>Working Date</th>
+                                    <th>Finish Date</th>
+                                    <th>Down Time</th>
+                                </tr>
+                                </thead>
+                                <!-- Footer Table -->
+                            </table>
+                            <input id="a" name="a" type=hidden value=""/>
+                            <input id="b" name="b" type=hidden value=""/>
+                            <input id="c" name="c" type=hidden value=""/>
+                            <input id="d" name="d" type=hidden value=""/>
+                            <input id="e" name="e" type=hidden value=""/>
+                            <input id="f" name="f" type=hidden value=""/>
+                            <input id="g" name="g" type=hidden value=""/>
+                            <input id="h" name="h" type=hidden value=""/>
+                            <input id="i" name="i" type=hidden value=""/>
+                            <input id="j" name="j" type=hidden value=""/>
+                            <input id="k" name="k" type=hidden value=""/>
+                            <input id="l" name="l" type=hidden value=""/>
+                            <input id="m" name="m" type=hidden value=""/>
+                            <input id="n" name="n" type=hidden value=""/>
+                            <input id="o" name="o" type=hidden value=""/>
+                            <input id="p" name="p" type=hidden value=""/>
+                            <input id="q" name="q" type=hidden value=""/>
+                        </div>
+            </div>
+                </div>
+            </div>
+            <button class="btn btn-warning btn-lg"  type="button" ><b class="glyphicon glyphicon-download-alt"></b> Export To XLS</button>
+        </div>
+</div>
+</body>
+</html>

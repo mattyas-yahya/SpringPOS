@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8" />
+</head>
+<body >
+<section layout:fragment="header">
+    <h1>
+        Dashboard
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<h2 id="nx"></h2>
+<h2 id="nc"></h2>
+<div layout:fragment="content">
+
+
+    <div class="col-md-12">
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title"></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="box box-solid bg-blue-gradient">
+                                <canvas id="myChart" width="2000" height="600"></canvas>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h3>Barang Terlaris</h3>
+
+                            <canvas id="ChartLaris" width="2000" height="600"></canvas>
+                        </div>
+                        <div class="item">
+                            <h3>Stok Menipis</h3>
+
+                            <canvas id="ChartMinStok" width="2000" height="600"></canvas>
+                        </div>
+                        <div class="item">
+                            <h3>Barang Terlaris</h3>
+
+                            <div class="item">
+                                <canvas id="ChartBarangLaris" width="2000" height="600"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="fa fa-angle-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="fa fa-angle-right"></span>
+                    </a>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+        <p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8"/>
+<title> Cost</title>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+<h2>
+Form Cost
+<small>Form Cost</small>
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Data Cost</li>
+</ol>
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">
+
+
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li><a href="#tab_2" data-toggle="tab">General</a></li>
+<li><a id="tab_3_biy" href="#tab_3" data-toggle="tab">Detail Activity</a></li>
+</ul>
+<span th:replace="biaya/modal_b_wo"/>
+
+<div class="tab-content">
+<div class="tab-pane active" id="tab_1">
+<div class="col-md-12">
+<li class="pull-left header"><i class="fa fa-th"><h2>Moveout Voucher</h2></i></li>
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs pull-right">
+<li class="active"><a href="#tab_1-1" data-toggle="tab">Open Transaction</a></li>
+<li><a href="#tab_2-2" data-toggle="tab">Close Transaction</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tab_1-1">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelhemov"
+class="table table-striped table-bordered table-hover"
+cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id_header_moveout</th>
+<th>referensi</th>
+<th>deskripsi</th>
+<th>Transaction Status</th>
+</tr>
+</thead>
+<!-- Footer Table -->
+</table>
+
+<input type=hidden id="a" name="a" value=""/>
+<input type=hidden id="b" name="b" value=""/>
+<input type=hidden id="c" name="c" value=""/>
+<input type=hidden id="d" name="d" value=""/>
+
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2-2">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelhemovend"
+class="table table-striped table-bordered table-hover"
+cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id_header_moveout</th>
+<th>referensi</th>
+<th>deskripsi</th>
+<th>Transaction Status</th>
+</tr>
+</thead>
+</table>
+<input type=hidden id="l" name="l" value=""/>
+<input type=hidden id="k" name="k" value=""/>
+<input type=hidden id="j" name="j" value=""/>
+<input type=hidden id="u" name="u" value=""/>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_3-2">
+
+</div>
+</div>
+</div>
+</div>
+<a type="button" class="btn btn-danger btn-md" th:href="@{~/header_moveout}"><i class="fa fa-edit"></i> New Voucher</a>
+</div>
+<div class="tab-pane" id="tab_2">
+<form data-toggle="validator" role="form" th:object="${biaya}" th:action="@{/b_komit}"
+method="post">
+<div class="col-md-12">
+<div class='box-header'>
+<div class="box-body">
+
+<div class="col-md-8">
+
+<table class="table table-striped table-bordered table-hover">
+<tr hidden>
+<td>
+<div class="form-group">
+<label for="nama">id_biaya</label>
+<input type="text" class="form-control" th:field="*{id_biaya}" value="empty"
+id="id_biaya" readonly/>
+</div>
+</td>
+</tr>
+<tr hidden>
+<td>
+<div class="form-group">
+<label for="nama">id_header_moveout</label>
+<input class="form-control" id="id_header_moveout" value="empty" readonly
+th:field="*{id_header_moveout}" type="text"/>
+</div>
+</td>
+</tr>
+<tr hidden>
+
+<td>
+<div class="form-group">
+<label for="nama">id_wo</label>
+<input class="form-control" id="id_wo" value="empty" readonly
+th:field="*{id_wo}" type="text"/>
+</div>
+</td>
+</tr>
+
+<tr>
+
+
+<td>
+<div class="form-group">
+<label class="text-red" for="nama">reference (Click for
+Detail) </label>
+<input class="form-control" id="referensi"
+th:field="*{referensi}" type="text" readonly/>
+</div>
+</td>
+
+</tr>
+<tr>
+<td>
+<div class="form-group">
+<label for="nama">Group</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select th:field="*{grup}" class="form-control"
+required="true">
+<option th:each="type : ${biaya}" th:value="'Mechanic'"
+th:text="Mechanic">Mechanic
+</option>
+<option th:each="type : ${biaya}" th:value="'elektrik'"
+th:text="elektrik">elektrik
+</option>
+<option th:each="type : ${biaya}" th:value="'sipil'"
+th:text="sipil">sipil
+</option>
+<option th:each="type : ${biaya}" th:value="'Boiler'"
+th:text="Boiler">Boiler
+</option>
+<option th:each="type : ${biaya}" th:value="'HVAC'"
+th:text="HVAC">HVAC
+</option>
+<option th:each="type : ${biaya}"
+th:value="'konsumsi tetap'"
+th:text="konsumsi_tetap">konsumsi tetap
+</option>
+</select>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="form-group">
+<label for="nama"> Wo Code </label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" required="true" class="form-control"
+th:field="*{kode_wo}" id="kodewo" readonly/>
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modbwo" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+</td>
+</tr>
+
+<tr>
+<td>
+<div class="form-group">
+<label for="nama">Labour</label>
+<input type="text" class="form-control" required="true"
+th:field="*{jumlah_orang}" id="jumlah_orang"
+name="jumlah_orang" placeholder="Masukkan Jumlah Orang"/>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="form-group">
+<label for="nama">Cost</label>
+<input type="text" class="form-control" required="true"
+th:field="*{biaya}" id="biaya" name="biaya"
+placeholder="biaya"/>
+</div>
+</td>
+</tr>
+
+<tr>
+<td>
+<div class="form-group">
+<label for="nama">Working Date</label>
+<input type="text" class="form-control" required="true"
+th:field="*{start}" id="start_biy" name="start"
+placeholder="YYYY-MM-DD" readonly/>
+</div>
+</td>
+</tr>
+
+<tr>
+
+<td>
+<div class="form-group">
+<label for="nama">Deskription</label>
+<textarea height="6000" class="form-control" id="deskripsi"
+name="deskripsi"
+placeholder="deskripsi" required="true"
+th:field="*{deskripsi}"
+type="text"/>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<button class="btn btn-info btn-lg" id="simpan_biaya" type="submit" value="b_simpan" name="b_action"><b class="glyphicon glyphicon-floppy-disk"></b> Save</button>
+<!--<button class="btn btn-warning btn-lg" type="submit" value="b_ubah" name="b_action">edit-->
+<!--</button>-->
+<button class="btn btn-danger btn-lg" type="submit" value="b_hapus" name="b_action"><b class="glyphicon glyphicon-trash"></b> Delete</button>
+<button class="btn btn-warning btn-lg" type="submit" value="b_closing" name="b_action"><b class="glyphicon glyphicon-floppy-saved"></b> Close Transaction</button>
+</form>
+</div>
+<div class="tab-pane" id="tab_3">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelbiy" class="table table-striped table-bordered table-hover" cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>Cost Id</th>
+<th>Group</th>
+<th>Wo Id</th>
+<th>Work Order Code</th>
+<th>Id Cost Voucher</th>
+<th>Cost Reference</th>
+<th>Labour</th>
+<th>Cost</th>
+<th>Working Date</th>
+<th>Deskription</th>
+
+</tr>
+</thead>
+<!-- Footer Table -->
+</table>
+
+<input type=hidden id="ac" name="ac" value=""/>
+<input type=hidden id="bc" name="bc" value=""/>
+<input type=hidden id="cc" name="cc" value=""/>
+<input type=hidden id="dc" name="dc" value=""/>
+<input type=hidden id="ec" name="ec" value=""/>
+<input type=hidden id="fc" name="fc" value=""/>
+<input type=hidden id="gc" name="gc" value=""/>
+<input type=hidden id="hc" name="hc" value=""/>
+<input type=hidden id="ic" name="ic" value=""/>
+<input type=hidden id="jc" name="jc" value=""/>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

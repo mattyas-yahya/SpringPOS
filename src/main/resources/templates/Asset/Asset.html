@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Data Asset</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+<h2>
+Data Fix Asset
+<small>Form Control</small>
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Data Asset</li>
+</ol>
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="box">
+<div class="box-header">
+<h2 class="box-title">Fix Asset</h2>
+
+<div class="box-tools pull-right">
+<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+</button>
+<div class="btn-group">
+<button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+<i class="fa fa-wrench"></i></button>
+<ul class="dropdown-menu" role="menu">
+
+<li class="divider"></li>
+<li>  <table class="table table-striped table-bordered table-hover" >
+<tr>
+<td>
+<label>Hide id_asset
+<input type="checkbox" id="1">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="2">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="3">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="4">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="5">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="6">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="m7">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="8">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="9">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="10">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="11">
+</label>
+</td>
+</tr>
+</table></li>
+</ul>
+</div>
+<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+</div>
+</div>
+<div class="box-body">
+
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+<li ><a id="tab_3x" href="#tab_3" data-toggle="tab">History Maintenance</a></li>
+</ul>
+<div class="tab-content">
+
+
+
+<div class="tab-pane active" id="tab_1">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelass" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id_asset</th>
+<th>serial</th>
+<th>Asset Name</th>
+<th> Asset Code </th>
+<th>Purchase Date</th>
+<th> Asset Group</th>
+<th>Model</th>
+<th>Location</th>
+<th>Asset Tag</th>
+<th>Price</th>
+<th>warranty</th>
+
+</tr>
+</thead>
+<!-- Footer Table -->
+</table>
+
+<input type=hidden id="a" name="a" value=""/>
+<input type=hidden id="b" name="b" value=""/>
+<input type=hidden id="c" name="c" value=""/>
+<input type=hidden id="d" name="d" value=""/>
+<input type=hidden id="e" name="e" value=""/>
+<input type=hidden id="f" name="f" value=""/>
+<input type=hidden id="g" name="g" value=""/>
+<input type=hidden id="h" name="h" value=""/>
+<input type=hidden id="i" name="i" value=""/>
+<input type=hidden id="j" name="j" value=""/>
+<input type=hidden id="k" name="k" value=""/>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2">
+<form data-toggle="validator" role="form" th:object="${asset}" th:action="@{/komit}" method="post">
+<div class="col-md-12">
+<div class='box-header'>
+<div class="box-body">
+
+<div class="col-md-12">
+
+<table class="table table-striped table-bordered table-hover" >
+<tr hidden>
+    <td> <div class="form-group" hidden>
+        <label for="nama">id_asset</label>
+        <input type="text" class="form-control" th:field="*{id_asset}" id="id_asset" readonly />
+    </div></td>
+</tr>
+<tr>
+    <td>  <div class="form-group">
+        <label for="nama"> Asset Name</label>
+        <input type="text" required="true" class="form-control" th:field="*{nama_asset}" id="nama_asset" name="nama_asset" placeholder="Masukkan Nama"/>
+    </div></td>
+    <td> <div class="form-group">
+        <label class="text-red" for="nama">Asset Code (click for histori)</label>
+        <input type="text" class="form-control" required="true" th:field="*{kode_asset}" id="kode_asset" name="kode_asset" placeholder="Masukkan kode"/>
+    </div></td>
+</tr>
+
+<tr>
+    <td> <div class="form-group">
+        <label for="nama">Purchase Date </label>
+        <input type="text" class="form-control" required="true" th:field="*{tgl_beli_asset}" id="tgl_beli_asset" name="tgl_beli_asset" placeholder="Masukkan tanggal beli"/>
+    </div></td>
+    <td>  <div class="form-group">
+        <label for="nama">Group</label>
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-id-card"></i>
+            </div>
+            <select th:field="*{grup}" class="form-control" required="true">
+                <option th:each="type : ${asset}" th:value="'bahan bakar'" th:text="bahan_bakar">bahan bakar</option>
+                <option th:each="type : ${asset}"  th:value="'elektrik'" th:text="elektrik">elektrik</option>
+                <option th:each="type : ${asset}"  th:value="'bahan baku sipil'" th:text="bahan_baku_sipil">bahan baku sipil</option>
+                <option th:each="type : ${asset}"  th:value="'pelumas & bahan kimia'" th:text="pelumas_bahan_kimia">pelumas & bahan kimia</option>
+                <option th:each="type : ${asset}"  th:value="'mekanik'" th:text="mekanik">mekanik</option>
+                <option th:each="type : ${asset}"  th:value="'konsumsi tetap'" th:text="konsumsi_tetap">konsumsi tetap</option>
+            </select>
+        </div>
+    </div></td>
+</tr>
+
+<tr>
+    <td>   <div class="form-group">
+        <label for="nama">Asset Model</label>
+        <input type="text" class="form-control" required="true" th:field="*{model}" id="model" name="model" placeholder="Masukkan model asset"/>
+    </div></td>
+    <td>  <div class="form-group">
+        <label for="nama"> Asset Location </label>
+        <input type="text" class="form-control" required="true" th:field="*{lokasi}" id="lokasi" name="lokasi" placeholder="Masukkan Lokasi asset"/>
+    </div></td>
+</tr>
+
+<tr>
+    <td>   <div class="form-group">
+        <label for="nama">Asset Tag</label>
+        <input type="text" class="form-control" required="true" th:field="*{asset_tag}" id="asset_tag" name="asset_tag" placeholder="Masukkan asset_tag"/>
+    </div></td>
+    <td> <div class="form-group">
+        <label for="nama">Price</label>
+        <input type="text" class="form-control" required="true" th:field="*{harga_beli}" id="harga_beli" name="harga_beli" placeholder="harga_beli"/>
+    </div></td>
+</tr>
+
+<tr>
+    <td>   <div class="form-group">
+        <label for="nama">warranty (Month)</label>
+        <input type="text" class="form-control" required="true" th:field="*{garansi}" id="garansi" name="garansi" placeholder="garansi ( Bulan)"/>
+    </div></td>
+    <td><div class="form-group">
+        <label for="nama">Serial</label>
+        <input type="text" required="true" class="form-control" th:field="*{serial}" id="serial" />
+    </div></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+</div>
+</div>
+<button class="btn btn-warning btn-lg" id="simpan_asset"  type="submit" value="simpan" name="action"><b class="glyphicon glyphicon-floppy-disk"></b> Post</button>
+<!--<button class="btn btn-warning btn-lg"  type="submit" value="ubah" name="action">edit</button>-->
+<button class="btn btn-danger btn-lg"  type="submit" value="hapus" name="action"><b class="glyphicon glyphicon-trash"></b> delete</button>
+</form>
+</div>
+<div class="tab-pane" id="tab_3">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table aria-describedby="example_info" cellspacing="0"
+class="table table-striped table-bordered table-hover"
+id="tabel_log_wo_asset" role="grid" style="width: 100%;"
+width="100%">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id_wo</th>
+<th>id_asset</th>
+<th>id_pm</th>
+<th>id_dept</th>
+<th>Wo Code</th>
+<th>Departement Name</th>
+<th>Issue</th>
+<th>Asset Code</th>
+<th>Location</th>
+<th>Job Status</th>
+<th>Priority</th>
+<th>Action</th>
+<th>Job Category</th>
+<th>Created Date</th>
+<th>Working Date</th>
+<th>Finish Date</th>
+<th>Down Time</th>
+</tr>
+</thead>
+<!-- Footer Table -->
+</table>
+<input id="ax" name="ax" type=hidden value=""/>
+<input id="bx" name="bx" type=hidden value=""/>
+<input id="cx" name="cx" type=hidden value=""/>
+<input id="dx" name="dx" type=hidden value=""/>
+<input id="ex" name="ex" type=hidden value=""/>
+<input id="fx" name="fx" type=hidden value=""/>
+<input id="gx" name="gx" type=hidden value=""/>
+<input id="hx" name="hx" type=hidden value=""/>
+<input id="ix" name="ix" type=hidden value=""/>
+<input id="jx" name="jx" type=hidden value=""/>
+<input id="kx" name="kx" type=hidden value=""/>
+<input id="lx" name="lx" type=hidden value=""/>
+<input id="mx" name="mx" type=hidden value=""/>
+<input id="nx" name="nx" type=hidden value=""/>
+<input id="ox" name="ox" type=hidden value=""/>
+<input id="px" name="px" type=hidden value=""/>
+<input id="qx" name="qx" type=hidden value=""/>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>

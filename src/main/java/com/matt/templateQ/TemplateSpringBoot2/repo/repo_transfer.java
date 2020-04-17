@@ -1,0 +1,14 @@
+package com.matt.templateQ.TemplateSpringBoot2.repo;
+
+import com.matt.templateQ.TemplateSpringBoot2.model.transfer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
+public interface repo_transfer extends JpaRepository<transfer,String>
+{
+    String Q1="SELECT a.id_transfer,b.id_barang,b.kode_barang,a.tanggal,b.nama,a.jumlah,a.note FROM transfer a join barang b where b.id_barang=a.id_barang;";
+    @Query(value =Q1 ,nativeQuery = true)
+    List<transfer> transfer_barang();
+}

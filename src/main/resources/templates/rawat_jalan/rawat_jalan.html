@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Rawat Jalan</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+<h2>
+Rawat Jalan
+<small>Control panel</small>
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Data Pasien</li>
+</ol>
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">  
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+</ul>
+  <span th:replace="rawat_jalan/modal_pasien"/>   
+    <span th:replace="rawat_jalan/modal_dokter"/>   
+        <span th:replace="rawat_jalan/modal_diagnosa"/>  
+<div class="tab-content">
+<div class="tab-pane active" id="tab_1">  
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelrj" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id rawat jalan</th>    
+<th>id pasien</th>
+<th>no ktp</th>    
+<th>nama</th>    
+<th>alamat </th>       
+<th>Tgl Berobat</th> 
+<th>Klinik yang di Tuju</th>    
+<th>Check up</th> 
+<th>Pembayaran</th>    
+<th>ID Dokter</th>
+<th>Nama Dokter</th>
+<th>Diagnosa</th>    
+<th>Nama Penyakit</th>   
+<th>riwayat_penyakit</th>   
+<th>anamnesia</th>   
+<th>terapi</th>   
+</tr>
+</thead>
+<!-- Footer Table -->
+</table>
+
+<input type=hidden id="a" name="a" value=""/>
+<input type=hidden id="b" name="b" value=""/>
+<input type=hidden id="c" name="c" value=""/>
+<input type=hidden id="d" name="d" value=""/>
+<input type=hidden id="e" name="e" value=""/>
+<input type=hidden id="f" name="f" value=""/>
+<input type=hidden id="g" name="g" value=""/>
+<input type=hidden id="h" name="h" value=""/>
+<input type=hidden id="i" name="i" value=""/>
+<input type=hidden id="j" name="j" value=""/>
+<input type=hidden id="k" name="k" value=""/>
+<input type=hidden id="l" name="l" value=""/>
+<input type=hidden id="m" name="m" value=""/>
+<input type=hidden id="n" name="n" value=""/>
+<input type=hidden id="o" name="o" value=""/>
+<input type=hidden id="p" name="p" value=""/>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2">  
+<form data-toggle="validator" role="form" th:object="${rawat_jalan}" th:action="@{/komit}" method="post">   
+<div class="col-md-12">  
+<div class='box-header'>
+<div class="box-body">    
+<div class="col-md-6">  
+    <div class="form-group" hidden>
+<label for="nama">id_rawat_jalan</label>
+<input type="text" class="form-control" th:field="*{id_rawat_jalan}" id="id_rawat_jalan" name="id_rawat_jalan" readonly />
+</div>
+<div class="form-group" hidden>
+<label for="nama">id_pasien</label>
+<input type="text" class="form-control" th:field="*{id_pasien}" id="id_pasien" readonly />
+</div>
+<div class="form-group">
+<label for="nama">No Ktp</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" required="true" class="form-control" th:field="*{nok}" id="nok" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modiv" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+<div class="form-group">
+<label for="nama">Nama</label>
+<input type="text" required="true" class="form-control" th:field="*{nama}" id="nama" name="nama" placeholder="Masukkan Nama" readonly />
+</div>
+<div class="form-group">
+<label for="nama">Alamat</label>
+<input type="text" class="form-control" required="true" th:field="*{alamat}" id="alamat" name="alamat" placeholder="Masukkan alamat" readonly/>
+</div> 
+<div class="form-group">
+<label for="nama">Tgl Berobat</label>
+<input type="text" class="form-control" required="true" th:field="*{tgl_berobat}" id="tgl_berobat" name="tgl_berobat" placeholder="yyyy/mm/dd" data-date-format="dd/mm/yyyy"/>
+</div>
+     <div class="form-group">
+<label for="nama">Klinik yang di Tuju</label>
+<input type="text" class="form-control" required="true" th:field="*{klinik}" id="Klinik" name="Klinik" placeholder="Masukkan Nama Klinik "/>
+</div>
+</div>
+
+<div class="col-md-6"> 
+ <div class="form-group">
+<label for="nama">Tanggal Check Up</label>
+<input type="text" class="form-control" required="true" th:field="*{checked}" id="check" name="checked" placeholder="yyyy/mm/dd "/>
+</div>   
+<div class="form-group">
+<label for="nama">Pembayaran</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select th:field="*{bayar}" id="bayar" class="form-control" required="true">
+<option th:each="type : ${rawat_jalan}" th:value="'Askes'" th:text="Askes">Askes</option>
+<option th:each="type : ${rawat_jalan}"  th:value="'BPJS'" th:text="BPJS">BPJS</option>
+<option th:each="type : ${rawat_jalan}"  th:value="'Tunai'" th:text="Tunai">Tunai</option>
+</select>
+</div>  
+</div>
+    
+<div class="form-group" hidden>
+<label for="nama">Id Dokter</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" required="true" class="form-control" th:field="*{id_dokter}" id="id_dokter" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modok" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+  
+<div class="form-group">
+<label for="nama">Nama Dokter</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" class="form-control" th:field="*{nama_dokter}" id="nama_dokter" name="nama_dokter" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modok" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+
+    
+<div class="form-group">
+<label for="nama">History penyakit</label>
+<input type="text" class="form-control" th:field="*{riwayat_penyakit}" id="riwayat_penyakit" name="riwayat_penyakit"  />
+</div>
+    
+<div class="form-group">
+<label for="nama">Anamnesia</label>
+<input type="text" class="form-control" th:field="*{anamnesia}" id="anamnesia" name="anamnesia"  />
+</div>
+    
+<div class="form-group" hidden>
+<label for="nama">Diagnosa</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" required="true" class="form-control" th:field="*{id_diagnosa}" id="id_diagnosa" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modiag" data-toggle="modal">Select</button>
+</span>
+</div>
+</div> 
+
+<div class="form-group">
+<label for="nama">Nama Penyakit</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" class="form-control" th:field="*{nama_penyakit}" id="nama_penyakit" name="nama_penyakit" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modiag" data-toggle="modal">Select</button>
+</span>
+</div>    
+</div>   
+    
+<div class="form-group">
+<label for="nama">Terapi</label>
+<input type="text" required="true" class="form-control" th:field="*{terapi}" id="terapi" name="terapi" placeholder="Masukkan Nama"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="btn btn-vimeo btn-md"  type="submit" value="simpan" name="action">save</button>
+<button class="btn btn-vimeo btn-md"  type="submit" value="ubah" name="action">edit</button>
+<button class="btn btn-vimeo btn-md"  type="submit" value="hapus" name="action">delete</button>     
+</form>
+</div>
+</div>
+</div>
+</div>
+</div> 
+</body>
+</html>

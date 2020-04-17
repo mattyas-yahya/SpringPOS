@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="utf-8" />
+    <title>Data Transaksi</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+    <h2>
+        Data Transaksi
+
+    </h2>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Data Transaksi</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header">
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-wrench"></i></button>
+                        <ul class="dropdown-menu" role="menu">
+
+                            <li class="divider"></li>
+                            <li>
+
+
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <div class="box-body">
+
+                <div class="nav-tabs-custom">
+
+
+
+                        <button class="btn btn-warning btn-lg"  ><b class="glyphicon glyphicon-floppy-disk"></b> Export</button>
+
+                        <div class="tab-pane active" id="tab_1">
+                            <div class='box-body pad'>
+                                <div class="panel panel-default">
+                                    <table id="tabeltr" class="table table-striped table-bordered table-hover"  cellspacing="0"
+                                           width="100%" role="grid" aria-describedby="example_info"
+                                           style="width: 100%;">
+                                        <!-- Header Table -->
+                                        <thead>
+                                        <tr>
+                                            <th>id_transaction</th>
+                                            <th>id_barang</th>
+                                            <th>Tanggal</th>
+                                            <th> Nama Item </th>
+                                            <th>Harga</th>
+                                            <th> Unit</th>
+                                            <th> Total</th>
+
+
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>id_transaction</th>
+                                            <th>id_barang</th>
+                                            <th>Tanggal</th>
+                                            <th> Nama Item </th>
+                                            <th>Harga</th>
+                                            <th> Unit</th>
+                                            <th> Total</th>
+                                        </tr>
+                                        </tfoot>
+                                        <!-- Footer Table -->
+                                    </table>
+
+                                    <input type=hidden id="ax" name="ax" value=""/>
+                                    <input type=hidden id="bx" name="bx" value=""/>
+                                    <input type=hidden id="cx" name="cx" value=""/>
+                                    <input type=hidden id="dx" name="dx" value=""/>
+                                    <input type=hidden id="ex" name="ex" value=""/>
+                                    <input type=hidden id="fx" name="fx" value=""/>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

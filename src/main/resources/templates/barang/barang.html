@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Barang</title>
+
+</head>
+<body >
+<section layout:fragment="header">
+<h2>
+Data Barang
+<small>Data Barang</small>
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Data Barang</li>
+</ol>
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="box">
+<div class="box-header">
+
+<div class="box-tools pull-right">
+<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+</button>
+<div class="btn-group">
+<button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+<i class="fa fa-wrench"></i></button>
+<ul class="dropdown-menu" role="menu">
+
+<li class="divider"></li>
+<li>
+
+
+</li>
+</ul>
+</div>
+<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+</div>
+</div>
+<div class="box-body">
+
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+</ul>
+<div class="tab-content">
+
+
+
+<div class="tab-pane active" id="tab_1">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelbrgmaster" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id_barang</th>
+  <th>kode barang</th>
+<th>nama</th>
+<th>jenis</th>
+<th> harga_beli </th>
+<th>harga_jual</th>
+<th>Margin</th>
+<th> stok awal</th>
+<th> Transfer</th>
+<th> Penjualan</th>
+<th> Adjustment</th>
+<th> stok akhir</th>
+<th> UOM </th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+<th> </th>
+</tr>
+</tfoot>
+<!-- Footer Table -->
+</table>
+
+
+
+</div>
+<!--    <button class="btn btn-info btn-lg" type="button" aria-label="Close">Export To XLS</button>-->
+
+
+</div>
+</div>
+<div class="tab-pane" id="tab_2">
+<form data-toggle="validator" role="form" name="test"  th:object="${barang}" th:action="@{/rb_komit}" method="post">
+<div class="col-md-12">
+<div class='box-header'>
+<div class="box-body">
+
+<div class="col-md-12">
+
+<table class="table table-striped table-bordered table-hover" >
+<tr >
+<td> <div class="form-group" >
+<label for="nama">id_barang</label>
+<input type="text" class="form-control" th:field="*{id_barang}" id="id_barang" readonly />
+</div></td>
+</tr>
+<tr>
+  <td>
+    <div class="form-group">
+      <label for="nama"> Item Code</label>
+      <input type="text" required="true" class="form-control" th:field="*{kode_barang}" id="kode_barang" name="kode_barang" placeholder="Masukkan Nama"/>
+    </div>
+  </td>
+<td>
+<div class="form-group">
+    <label for="nama"> Item Name</label>
+    <input type="text" required="true" class="form-control" th:field="*{nama}" id="nama" name="nama" placeholder="Masukkan Nama"/>
+</div>
+</td>
+
+<td>  <div class="form-group">
+<label for="nama">jenis</label>
+<div class="input-group">
+    <div class="input-group-addon">
+        <i class="fa fa-id-card"></i>
+    </div>
+    <select th:field="*{jenis}" id="jenis" class="form-control" required="true">
+        <option th:each="type : ${barang}" th:value="'makanan'" th:text="makanan">makanan</option>
+        <option th:each="type : ${barang}"  th:value="'minuman'" th:text="minuman">minuman</option>
+        <option th:each="type : ${barang}"  th:value="'bahan_baku_makanan'" th:text="bahan_baku_makanan">bahan baku makanan</option>
+        <option th:each="type : ${barang}"  th:value="'rokok'" th:text="rokok">rokok</option>
+        <option th:each="type : ${barang}"  th:value="'sabun'" th:text="sabun">sabun</option>
+        <option th:each="type : ${barang}"  th:value="'peralatan_mandi'" th:text="peralatan_mandi">peralatan mandi</option>
+        <option th:each="type : ${barang}"  th:value="'Lain_Lain'" th:text="Lain_Lain">Lain - Lain</option>
+    </select>
+</div>
+</div></td>
+<td>  <div class="form-group">
+<label for="nama">UOM</label>
+<div class="input-group">
+    <div class="input-group-addon">
+        <i class="fa fa-id-card"></i>
+    </div>
+    <select id="uom" th:field="*{uom}" class="form-control" required="true">
+        <option th:each="type : ${barang}" th:value="'KG'" th:text="KG">KG</option>
+        <option th:each="type : ${barang}"  th:value="'g'" th:text="g">g</option>
+        <option th:each="type : ${barang}"  th:value="'pcs'" th:text="pcs">pcs</option>
+        <option th:each="type : ${barang}"  th:value="'unit'" th:text="unit">unit</option>
+    </select>
+</div>
+</div></td>
+
+</tr>
+
+<tr>
+<td> <div class="form-group">
+<label for="nama">harga_beli </label>
+<input type="text" class="form-control" required="true" th:field="*{harga_beli}" id="harga_beli" name="harga_beli" placeholder="Masukkan harga_beli"/>
+</div></td>
+<td> <div class="form-group">
+<label for="nama">harga_jual </label>
+<input type="text" class="form-control" required="true" th:field="*{harga_jual}" id="harga_jual" name="harga_jual" placeholder="Masukkan "/>
+</div></td>
+
+<td> <div class="form-group">
+<label for="nama">Stok Awal </label>
+<input type="text" class="form-control" required="true" th:field="*{stok_awal}" id="stok_awal" name="stok_awal" placeholder="Masukkan "/>
+</div></td>
+</tr>
+
+
+
+</table>
+
+</div>
+
+</div>
+</div>
+</div>
+<button class="btn btn-warning btn-lg" id="simpan_asset"  type="submit" value="rb_simpan" name="rb_action"><b class="glyphicon glyphicon-floppy-disk"></b> Post</button>
+<!--<button class="btn btn-warning btn-lg"  type="submit" value="ubah" name="action">edit</button>-->
+<button class="btn btn-danger btn-lg"  type="submit" value="rb_hapus" name="rb_action"><b class="glyphicon glyphicon-trash"></b> delete</button>
+</form>
+</div>
+<div class="tab-pane" id="tab_3">
+
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>

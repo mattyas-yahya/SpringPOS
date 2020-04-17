@@ -1,0 +1,137 @@
+<div class="col-md-35">
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#tab_11">All Items</a></li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_11">
+                <div class="col-md-12">
+
+                    <div class='box-body pad'>
+                        <div class="panel panel-default">
+                            <table id="tabelbrg" class="table table-striped table-bordered table-hover"  cellspacing="0"
+                                   width="100%" role="grid" aria-describedby="example_info"
+                                   style="width: 100%;">
+                                <!-- Header Table -->
+                                <thead>
+                                <tr>
+                                    <th>id_barang</th>
+                                    <th>nama</th>
+                                    <th>jenis</th>
+                                    <th> harga_beli </th>
+                                    <th>harga_jual</th>
+                                    <th> stok awal</th>
+                                    <th> Transfer</th>
+                                    <th> Penjualan</th>
+                                    <th> stok akhir</th>
+
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>id_barang</th>
+                                    <th>nama</th>
+                                    <th>jenis</th>
+                                    <th> harga_beli </th>
+                                    <th>harga_jual</th>
+                                    <th> stok awal</th>
+                                    <th> Transfer</th>
+                                    <th> Penjualan</th>
+                                    <th> stok akhir</th>
+                                </tr>
+                                </tfoot>
+                                <!-- Footer Table -->
+                            </table>
+
+                            <input type=hidden id="a" name="a" value=""/>
+                            <input type=hidden id="b" name="b" value=""/>
+                            <input type=hidden id="c" name="c" value=""/>
+                            <input type=hidden id="d" name="d" value=""/>
+                            <input type=hidden id="e" name="e" value=""/>
+                            <input type=hidden id="f" name="f" value=""/>
+
+                        </div>
+                    </div>
+
+
+                    <div class="panel panel-default">
+                        <form data-toggle="validator" name="test" role="form" th:object="${sale}"  th:action="@{/sa_komit}" method="post">
+                            <div class="col-md-12">
+                                <div class='box-header'>
+                                    <div class="box-body">
+
+                                        <div class="col-md-12">
+
+                                            <table class="table  table-bordered table-hover"  cellspacing="0"
+                                                   width="300%" role="grid" aria-describedby="example_info"
+                                                   style="width: 300%;">
+                                                <tr hidden>
+                                                    <td>
+                                                        <div class="form-group" >
+                                                            <label for="nama">id_sale</label>
+                                                            <input type="text" class="form-control" th:field="*{id_sale}" id="id_sale" readonly />
+                                                        </div>
+                                                    </td>
+                                                    <td> <div class="form-group" >
+                                                        <label for="nama">id_barang</label>
+                                                        <input type="text" class="form-control" th:field="*{id_brg}" id="id_brg" readonly />
+                                                    </div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <label for="nama"> Tanggal</label>
+                                                            <input type="text" required="true" class="form-control" th:field="*{tanggal}" id="tanggal" name="tanggal" placeholder=""/>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <label for="nama"> Item Name</label>
+                                                            <input type="text" required="true" class="form-control" th:field="*{nma}" id="nma" name="nma" placeholder="Masukkan Nama"/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <div class="form-group">
+                                                        <label class="text-red" for="nama">Harga Jual</label>
+                                                        <input type="text" class="form-control" required="true" th:field="*{hrga_jl}" id="hrga_jl" name="hrga_jl" placeholder=" "/>
+                                                    </div></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td> <div class="form-group">
+                                                        <label for="nama">unit </label>
+                                                        <input type="text" class="form-control" required="true" th:field="*{units}" id="units" name="units" placeholder="Masukkan units"/>
+                                                    </div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <div class="form-group">
+                                                        <label for="nama">total </label>
+                                                        <input type="text" class="form-control" required="true" th:field="*{total}" id="total" name="total" placeholder="Masukkan total "/>
+                                                    </div></td>
+                                                </tr>
+
+
+
+                                            </table>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-warning btn-lg" id="simpan_asse"  type="submit" value="sa_simpan" name="sa_action"><b class="glyphicon glyphicon-floppy-disk"></b> Post</button>
+                            <!--<button class="btn btn-warning btn-lg"  type="submit" value="ubah" name="action">edit</button>-->
+                            <button class="btn btn-danger btn-lg"  type="submit" value="sa_hapus" name="sa_action"><b class="glyphicon glyphicon-trash"></b> delete</button>
+                            <button class="btn btn-info btn-lg"  type="submit" value="sa_new" name="sa_action"><b class="glyphicon glyphicon-trash"></b> New Transaction</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

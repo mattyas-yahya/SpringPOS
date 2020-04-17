@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="utf-8" />
+    <title>Data Departemen</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+    <h2>
+        Data Departemen
+        <small>Form Control</small>
+    </h2>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Data Departemen</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="col-md-12">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+                <li ><a href="#tab_2" data-toggle="tab">General</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+                    <div class='box-body pad'>
+                        <div class="panel panel-default">
+                            <table id="tabedept" class="table table-striped table-bordered table-hover"  cellspacing="0"
+                                   width="100%" role="grid" aria-describedby="example_info"
+                                   style="width: 100%;">
+                                <!-- Header Table -->
+                                <thead>
+                                <tr>
+                                    <th>Departemen Id</th>
+                                    <th> Departemen Name</th>
+                                    <th>  Departemen Code</th>
+
+                                </tr>
+                                </thead>
+                                <!-- Footer Table -->
+                            </table>
+
+                            <input type=hidden id="a" name="a" value=""/>
+                            <input type=hidden id="b" name="b" value=""/>
+                            <input type=hidden id="c" name="c" value=""/>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_2">
+                    <form data-toggle="validator" role="form" th:object="${Departemen}" th:action="@{/d_komit}" method="post">
+                        <div class="col-md-12">
+                            <div class='box-header'>
+                                <div class="box-body">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group" hidden>
+                                            <label for="nama">id_dept</label>
+                                            <input type="text" class="form-control" th:field="*{id_dept}" id="id_dept" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nama"> Departemen Name</label>
+                                            <input type="text" required="true" class="form-control" th:field="*{nama_dept}" id="nama_dept" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nama"> Departemen Code</label>
+                                            <input type="text" required="true" class="form-control" th:field="*{kode_dept}" id="kode_dept" name="kode_dept" placeholder="Masukkan kode departemen"/>
+                                        </div>
+
+                                                                           </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger btn-lg" id="simpan_dept" type="submit" value="d_simpan" name="d_action"><b class="glyphicon glyphicon-floppy-disk"></b> Save</button>
+                        <!--<button class="btn btn-vimeo btn-md"  type="submit" value="d_ubah" name="d_action">edit</button>-->
+                        <button class="btn btn-warning btn-lg"  type="submit" value="d_hapus" name="d_action"><b class="glyphicon glyphicon-trash"></b> Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

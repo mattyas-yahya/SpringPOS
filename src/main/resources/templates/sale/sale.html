@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Barang</title>
+
+</head>
+<body >
+<section layout:fragment="header">
+<!--<div class="col-md-12">-->
+<!--<div class="col-lg-12 col-xs-12">-->
+<!--<div class="small-box bg-yellow">-->
+<!--<div class="inner">-->
+<!--<h2>Total Belanja: Rp <td th:text="${ra}" /></h2>-->
+<!--</div>-->
+<!--<div class="icon">-->
+<!--<i class="fa fa-shopping-cart"></i>-->
+<!--</div>-->
+<!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+<!--</div>-->
+<!--<div class="small-box bg-orange">-->
+<!--<div class="inner">-->
+<!--<h2>Jumlah Items: <td th:text="${ci}" /></h2>-->
+<!--</div>-->
+<!--<div class="icon">-->
+<!--<i class="fa fa-apple"></i>-->
+<!--</div>-->
+<!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+<!--</div>-->
+<!--<div class="small-box bg-red">-->
+<!--<div class="inner">-->
+<!--<h2>Total Tax: 67000</h2>-->
+<!--</div>-->
+<!--<div class="icon">-->
+<!--<i class="fa fa-credit-card"></i>-->
+<!--</div>-->
+<!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+</section>
+<div layout:fragment="content">
+<div class="col-md-6">
+<div >
+<div class="box-body">
+<div >
+<span th:replace="sale/mod"/>
+
+<form id="sale" data-toggle="validator" name="test" role="form" th:object="${sale}"  th:action="@{/sa_komit}" method="post">
+<div>
+<table class="table  table-bordered table-hover"  cellspacing="0"
+width="300%" role="grid" aria-describedby="example_info"
+style="width: 300%;">
+<tr hidden>
+<td>
+<div class="form-group" >
+<label for="nama">id_sale</label>
+<input type="text" class="form-control" th:field="*{id_sale}" id="id_sale" readonly />
+</div>
+</td>
+<td> <div class="form-group" >
+<label for="nama">id_barang</label>
+<input type="text" class="form-control" th:field="*{id_brg}" id="id_brg" readonly />
+</div></td>
+</tr>
+<tr>
+<td hidden>
+<div class="form-group">
+<label for="nama"> Tanggal</label>
+<input type="text"  class="form-control" th:field="*{tanggal}" id="tanggal" name="tanggal" placeholder="" readonly/>
+</div>
+</td>
+<tr>
+<td>
+<div class="form-group">
+<label for="nama"> Item Name</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" class="form-control" th:field="*{nma}" id="nma" name="nma" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modalitem" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+
+</td>
+</tr>
+</tr>
+<tr>
+<td hidden>
+<div class="form-group">
+<label class="text-red" for="nama">Harga Jual</label>
+<input type="text" class="form-control"   th:field="*{hrga_jl}" id="hrga_jl" name="hrga_jl" placeholder=" " readonly/>
+</div></td>
+</tr>
+
+<tr>
+<td> <div class="form-group">
+<label for="nama">unit </label>
+<input type="text" class="form-control"   th:field="*{units}" id="units" name="units" value=""  placeholder="Masukkan units"/>
+</div></td>
+</tr>
+<tr>
+<td > <div class="form-group">
+<label for="nama">total </label>
+<input type="text" class="form-control"   th:field="*{total}" id="total" name="total" placeholder="Masukkan total " readonly/>
+</div></td>
+</tr>
+</table>
+    <button class="btn btn-block btn-info btn-lg" type="submit" value="sa_simpan" name="sa_action"><b class="glyphicon glyphicon-floppy-save"></b> submit</button>
+    <button class="btn btn-block btn-warning btn-lg" type="submit" value="sa_new" name="sa_action"><b class="glyphicon glyphicon-share"></b> New Transaction</button>
+<table class="table  table-bordered table-hover"  cellspacing="0"
+width="300%" role="grid" aria-describedby="example_info"
+style="width: 300%;">
+
+<tr>
+<td hidden>
+<div class="form-group">
+<label for="nama"> Total Biaya</label>
+<input type="text"  class="form-control" th:value="${ra}" id="totbiy" name="totbiy" placeholder="" readonly/>
+</div>
+</td>
+
+
+<td hidden> <div class="form-group">
+<label class="text-red" for="nama">Bayar</label>
+<input height="1000px" type="text" class="form-control"   id="bayar" name="bayar" placeholder=" " />
+</div></td>
+</tr>
+</table>
+<div class="form-group" hidden>
+
+<label class="text-red" for="nama">Kembalian</label>
+<input type="text" width="3000px" height="3000px" class="form-control"  id="kembalian" name="kembalian" placeholder="" readonly/>
+
+</div>
+<table class="table  table-bordered table-hover"  cellspacing="0"
+width="300%" role="grid" aria-describedby="example_info"
+style="width: 300%;">
+    <tr>
+        <td>
+           <h3> Total Belanja </h3>
+        </td>
+        <td>
+           <h3> Jumlah Items</h3>
+        </td>
+        <td>
+            <h3>Total Tax</h3>
+        </td>
+    </tr>
+        <td>
+            <h2> <div th:text="${ra}" /></h2>
+        </td>
+        <td>
+            <h2> <div th:text="${ci}" /></h2>
+        </td>
+        <td>
+            <h2>3000 </h2>
+        </td>
+</table>
+<!--<button class="btn btn-info btn-lg" id="simpan_asse"  type="submit" value="sa_simpan" name="sa_action" hidden><b class="glyphicon glyphicon-floppy-disk" ></b> Post</button>-->
+<!--&lt;!&ndash;<button class="btn btn-warning btn-lg"  type="submit" value="ubah" name="action">edit</button>&ndash;&gt;-->
+<!--<button class="btn btn-danger btn-lg"  type="submit" value="sa_hapus" name="sa_action"><b class="glyphicon glyphicon-trash"></b> delete</button>-->
+<!--<button  class="btn btn-info btn-xs"  type="submit" value="sa_new" name="sa_action"><b class="glyphicon glyphicon-trash"></b> New Transaction</button>-->
+</div>
+<div class="col-md-12" hidden>
+
+<table class="table table-striped table-bordered table-hover" width="100px" >
+<tr>
+<td>
+<button type="button" id="1" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '1'">1</button>
+</td>
+<td>
+<button type="button"  id="2" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '2'" >2</button>
+</td>
+<td>
+<button type="button"  id="3" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '3'" >3</button>
+</td>
+<tr>
+</tr>
+<td>
+<button type="button"  id="4" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '4'" >4</button>
+</td>
+<td>
+<button type="button"  id="5" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '5'" >5</button>
+</td>
+<td>
+<button type="button"  id="6" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '6'" >6</button>
+</td>
+</tr>
+<tr>
+<td>
+<button type="button"  id="7" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '7'" >7</button>
+</td>
+<td>
+<button type="button"  id="8" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '8'" >8</button>
+</td>
+<td>
+<button type="button"  id="9" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '9'" >9</button>
+</td>
+</tr>
+<tr>
+<td>
+<button type="button"  id="0" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '0'" >0</button>
+</td>
+<td>
+<button type="button"  id="-" class="btn btn-block btn-info btn-lg" onclick="sale.units.value += '-'" >-</button>
+</td>
+<td>
+<button type="button"  id="+" class="btn btn-block btn-info btn-lg" onclick="sale.units.value = ''" >C</button>
+</td>
+</tr>
+</table>
+</div>
+</form>
+
+
+
+
+</div>
+
+</div>
+</div>
+
+
+</div>
+<div class="col-md-6">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabels" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+
+<th >tanggal</th>
+<th >Item</th>
+<th > harga  </th>
+<th >unit</th>
+<th > total</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+
+<th >tanggal</th>
+<th >Item</th>
+<th > harga  </th>
+<th >unit</th>
+<th > total</th>
+</tr>
+</tfoot>
+<!-- Footer Table -->
+</table>
+
+<input type=hidden id="a" name="a" value=""/>
+<input type=hidden id="b" name="b" value=""/>
+<input type=hidden id="c" name="c" value=""/>
+<input type=hidden id="d" name="d" value=""/>
+<input type=hidden id="e" name="e" value=""/>
+<input type=hidden id="f" name="f" value=""/>
+<input type=hidden id="g" name="g" value=""/>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>

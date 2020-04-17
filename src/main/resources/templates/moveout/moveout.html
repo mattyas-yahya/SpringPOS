@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>form Moveout</title>
+
+</head>
+<body  class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+<h2>
+Form Moveout
+<small>Form Control</small>
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Data Asset</li>
+</ol>
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+</ul>
+<span th:replace="moveout/modal_spare"/>
+<div class="tab-content">
+<div class="tab-pane active" id="tab_1">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelmov" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id_moveout</th>
+<th>id_spare_part</th>
+<th>kode_moveout</th>
+<th>kode_spare_part</th>
+<th>keterangan</th>
+<th>tgl_moveout</th>
+<th>jumlah </th>
+<th>harga </th>
+<th>total </th>
+</tr>
+</thead>
+<!-- Footer Table -->
+</table>
+
+<input type=hidden id="a" name="a" value=""/>
+<input type=hidden id="b" name="b" value=""/>
+<input type=hidden id="c" name="c" value=""/>
+<input type=hidden id="d" name="d" value=""/>
+<input type=hidden id="e" name="e" value=""/>
+<input type=hidden id="f" name="f" value=""/>
+<input type=hidden id="g" name="g" value=""/>
+<input type=hidden id="h" name="h" value=""/>
+<input type=hidden id="i" name="i" value=""/>
+
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2">
+<form id="moveout" name="test" data-toggle="validator" role="form" th:object="${moveout}" th:action="@{/m_komit}" method="post">
+<div class="col-md-12">
+<div class='box-header'>
+<div class="box-body">
+
+<div class="col-md-8">
+
+<table class="table table-striped table-bordered table-hover" >
+<tr hidden>
+<td>
+<div class="form-group" hidden>
+<label for="nama">id_moveout</label>
+<input class="form-control" id="id_moveout" readonly
+th:field="*{id_moveout}" type="text"/>
+</div>
+</td>
+</tr>
+
+<tr>
+
+<td>  <div class="form-group" hidden>
+<label for="nama">id_spare_part</label>
+<input class="form-control" id="id_spare_part" readonly
+th:field="*{id_spare_part}" type="text"/>
+</div>  </td>
+</tr>
+
+<tr>
+
+<td>
+<div class="form-group">
+<label for="nama">kode_moveout</label>
+<input type="text" class="form-control" required="true" th:field="*{kode_moveout}" id="kode_moveout" name="kode_moveout" placeholder="kode_moveout" readonly/>
+</div></td>
+</tr>
+<tr>
+<td> <div class="form-group" >
+<label for="nama">kode_spare_part</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" required="true" class="form-control" th:field="*{kode_spare_part}" id="kode_spare_part" />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modalspare" data-toggle="modal">Select</button>
+</span>
+</div>
+</div></td>
+</tr>
+
+<tr>
+<td>   <div class="form-group">
+<label for="nama">keterangan</label>
+<input type="text" class="form-control" required="true" th:field="*{keterangan}" id="keterangan" name="keterangan" placeholder="keterangan"/>
+</div></td>
+</tr>
+<tr>
+<td> <div class="form-group">
+<label for="nama">tgl_moveout</label>
+<input type="text" class="form-control" required="true" th:field="*{tgl_moveout}" id="tgl_moveout" name="tgl_moveout" placeholder="YYYY-MM-DD"/>
+</div></td>
+</tr>
+
+<tr>
+<td> <div class="form-group">
+<label for="nama">jumlah</label>
+<input type="text" class="form-control" required="true" th:field="*{jumlah}" id="jumlah" name="jumlah" oninput="vv();" placeholder="jumlah"/>
+</div></td>
+</tr>
+
+<tr>
+<td> <div class="form-group">
+<label for="nama">Harga</label>
+<input type="text" class="form-control" required="true" th:field="*{harga}" id="harga" name="harga" placeholder="" readonly/>
+</div></td>
+</tr>
+
+<tr>
+<td> <div class="form-group">
+<label for="nama">Total Biaya</label>
+<input type="text" class="form-control" required="true" th:field="*{total}" id="total" name="total" placeholder="" readonly/>
+</div></td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+</div>
+</div>
+<button class="btn btn-default btn-lg"  type="submit" value="m_simpan" name="m_action">save</button>
+<button class="btn btn-warning btn-lg"  type="submit" value="m_ubah" name="m_action">edit</button>
+<button class="btn btn-danger btn-lg"  type="submit" value="m_hapus" name="m_action">delete</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>

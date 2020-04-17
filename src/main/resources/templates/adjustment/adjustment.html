@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<title>Adjustment</title>
+    <meta charset="utf-8" />
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+
+
+
+<section layout:fragment="header">
+<h2>
+ Adjustment
+<small>Data Adjustment</small>
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active">Data Adjustment</li>
+</ol>
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="box">
+<div class="box-header">
+
+<div class="box-tools pull-right">
+<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+</button>
+<div class="btn-group">
+<button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+<i class="fa fa-wrench"></i></button>
+<ul class="dropdown-menu" role="menu">
+
+<li class="divider"></li>
+<li>
+
+
+</li>
+</ul>
+</div>
+<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+</div>
+</div>
+<div class="box-body">
+
+<div class="nav-tabs-custom">
+  <span th:replace="transfer/mod_transfer"/>
+
+    <ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+
+</ul>
+<div class="tab-content">
+
+
+
+<div class="tab-pane active" id="tab_1">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelAdjustment" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id_Adjustment</th>
+<th>id_brg</th>
+<th>tanggal_transfer</th>
+  <th>Kode Barang</th>
+  <th> Nama Item </th>
+  <th> Jumlah </th>
+    <th> Note </th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>id_Adjustment</th>
+<th>id_brg</th>
+<th>tanggal_transfer</th>
+<th>nama</th>
+<th> Jumlah </th>
+    <th> Note </th>
+</tr>
+</tfoot>
+<!-- Footer Table -->
+</table>
+
+<input type=hidden id="ax" name="ax" value=""/>
+<input type=hidden id="bx" name="bx" value=""/>
+<input type=hidden id="cx" name="cx" value=""/>
+<input type=hidden id="dx" name="dx" value=""/>
+<input type=hidden id="ex" name="ex" value=""/>
+    <input type=hidden id="fx" name="fx" value=""/>
+
+</div>
+
+
+</div>
+</div>
+<div class="tab-pane" id="tab_2">
+<form data-toggle="validator" role="form" th:object="${adjustment}" th:action="@{/adj_komit}" method="post">
+<div class="col-md-12">
+<div class='box-header'>
+<div class="box-body">
+
+<div class="col-md-12">
+
+<table class="table table-striped table-bordered table-hover" >
+<tr hidden>
+<td>
+    <div class="form-group" hidden>
+<label for="nama">id_adjustment</label>
+<input type="text" class="form-control" th:field="*{id_adjustment}" id="id_adjustment" readonly />
+</div></td>
+
+
+</tr>
+<tr>
+<td>
+<div class="form-group">
+<label for="nama"> Tanggal</label>
+<input type="text" required="true" class="form-control" th:field="*{tanggal}" id="tanggal" name="tanggal" placeholder=""/>
+</div>
+</td>
+
+
+
+
+</tr>
+
+  <tr>
+    <td>
+      <div class="form-group">
+        <label for="nama"> id_barang</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-id-card"></i>
+          </div>
+          <input type="text" class="form-control" th:field="*{id_brg}" id="id_brg" name="id_brg" readonly />
+
+        </div>
+      </div>
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="form-group">
+        <label for="nama"> kode_barang</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-id-card"></i>
+          </div>
+          <input type="text" class="form-control" th:field="*{kode_barang}" id="kode_barang" name="id_brg" readonly />
+          <span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modalitem" data-toggle="modal">Select</button>
+</span>
+        </div>
+      </div>
+
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="form-group">
+        <label for="nama"> Nama Barang</label>
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-id-card"></i>
+          </div>
+          <input type="text" class="form-control" th:field="*{nama}" id="nama" name="nama" readonly />
+
+        </div>
+      </div>
+
+    </td>
+  </tr>
+    <tr>
+<td> <div class="form-group">
+<label for="nama">Jumlah </label>
+<input type="text" class="form-control" required="true" th:field="*{jumlah}" id="jumlah" name="jumlah" placeholder=""/>
+</div></td>
+</tr>
+    <tr>
+        <td>
+            <div class="form-group">
+                <label for="nama">note</label>
+                <textarea height="6000" class="form-control" id="note" name="note"
+                          placeholder="issue" required="true" th:field="*{note}"
+                          type="text"/>
+            </div>
+        </td>
+    </tr>
+
+
+</table>
+
+</div>
+
+</div>
+</div>
+</div>
+<button class="btn btn-info btn-lg" id="simpan_asset"  type="submit" value="adj_simpan" name="adj_action"><b class="glyphicon glyphicon-floppy-disk"></b> Post</button>
+<!--<button class="btn btn-warning btn-lg"  type="submit" value="ubah" name="action">edit</button>-->
+</form>
+</div>
+
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+</body>
+
+</html>

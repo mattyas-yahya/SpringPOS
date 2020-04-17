@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html layout:decorate="layout"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="utf-8"/>
+<title>Kegagalan Mesin / Spare Part</title>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+<h2>
+Asset / Part Failur
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active"></li>
+</ol>
+</section>
+
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="box">
+<div class="box-header">
+<h2 class="box-title"> </h2>
+
+<div class="box-tools pull-right">
+<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+</button>
+<div class="btn-group">
+<button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+<i class="fa fa-wrench"></i></button>
+<ul class="dropdown-menu" role="menu">
+<li><a href="#">Action</a></li>
+<li><a href="#">Another action</a></li>
+<li><a href="#">Something else here</a></li>
+<li class="divider"></li>
+<li><a href="#">Separated link</a></li>
+</ul>
+</div>
+<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+</div>
+</div>
+<div class="box-body">
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a data-toggle="tab" href="#tab_1">Incoming</a></li>
+<li><a data-toggle="tab" href="#tab_2">General</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active"  id="tab_1">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table aria-describedby="example_info" cellspacing="0"
+class="table table-striped table-bordered table-hover"
+id="tabelfail" role="grid" style="width: 100%;"
+width="100%">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>Failur Id</th>
+<th>Reference</th>
+<th>Wo ID</th>
+<th>Wo Code</th>
+<th>Asset Code</th>
+<th>Isuue</th>
+<th>Efect</th>
+<th>Root Cause</th>
+<th>Action</th>
+
+
+</tr>
+</thead>
+<!-- Footer Table -->
+</table>
+
+<input id="ai" name="ai" type=hidden value=""/>
+<input id="bi" name="bi" type=hidden value=""/>
+<input id="ci" name="ci" type=hidden value=""/>
+<input id="di" name="di" type=hidden value=""/>
+<input id="ei" name="ei" type=hidden value=""/>
+<input id="fi" name="fi" type=hidden value=""/>
+<input id="gi" name="gi" type=hidden value=""/>
+<input id="hi" name="hi" type=hidden value=""/>
+<input id="ii" name="ii" type=hidden value=""/>
+
+
+</div>
+</div>
+</div>
+
+<div class="tab-pane" id="tab_2">
+<form data-toggle="validator" method="post" role="form" th:action="@{/r_komit}"  th:object="${failur}">
+<div class="col-md-15">
+<div class='box-header'>
+<div class="box-body">
+<div class="col-md-12">
+<table class="table table-striped table-bordered table-hover">
+<tr hidden>
+<td>
+<div class="form-group">
+<label for="nama">id_failur</label>
+<input class="form-control" id="id_failur" readonly
+th:field="*{id_failur}" type="text"/>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">id_wo</label>
+<input class="form-control" id="id_wo" readonly
+th:field="*{id_wo}" onchange="fill();" type="text"/>
+</div>
+
+
+</td>
+
+
+</tr>
+    <div class="col-md-6">
+<td>
+    <div class="form-group" >
+        <label for="nama">Reference (Click for detail) </label>
+        <input class="form-control" id="flreferensi"
+               th:field="*{referensi}" type="text" readonly />
+    </div>
+
+<div class="form-group">
+<label for="nama"> WO Code </label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" class="form-control" th:field="*{kode_wo}" id="kode_wo" name="kode_wo" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modfal" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+</td>
+
+<tr>
+<td>
+<div class="form-group">
+<label for="nama"> Asset Code </label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" class="form-control" th:field="*{kode_asset}" id="kode_asset" name="kode_asset" readonly />
+
+</div>
+</div>
+</td>
+</tr>
+        </div >
+
+</tr>
+
+</table>
+<table class="table table-striped table-bordered table-hover" width="1000">
+<tr>
+<td>
+<div class="form-group">
+<label for="nama">Issue</label>
+<textarea height="6000" class="form-control" id="issue" name="issue"
+placeholder="issue" required="true" th:field="*{title}"
+type="text" readonly />
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">Root Cause</label>
+<textarea height="6000" class="form-control" id="penyebab" name="penyebab"
+placeholder="issue" required="true" th:field="*{penyebab}"
+type="text"  />
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="form-group">
+<label for="nama">Action</label>
+<textarea height="6000" class="form-control" id="tindakan" name="tindakan"
+placeholder="tindakan" required="true" th:field="*{tindakan}"
+type="text"/>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">Efect</label>
+<textarea height="6000" class="form-control" id="Efek" name="Efek"
+placeholder="action" required="true" th:field="*{Efek}"
+type="text"/>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<!--<span th:replace="Modal_w/mod"/>-->
+</div>
+<div>
+</div>
+<div>
+</div>
+<div>
+</div>
+
+<table class="table table-striped table-bordered table-hover" width="1000">
+
+<tr>
+<button class="btn btn-info btn-lg" id="simpan_failur" name="r_action"  type="submit" value="r_simpan"><b class="glyphicon glyphicon-floppy-disk"></b> Save</button>
+</tr>
+<!--<tr>-->
+<!--<button class="btn btn-warning btn-lg" name="r_action" type="submit" value="r_ubah">edit-->
+<!--</button>-->
+<!--</tr>-->
+<tr>
+<button class="btn btn-danger btn-lg" name="r_action" type="submit" value="r_hapus"><b class="glyphicon glyphicon-trash"></b> Delete</button>
+</tr>
+</table>
+
+</form>
+</div>
+</div>
+    <span th:replace="Modal_w/modal_failure"/>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</body>
+</html>

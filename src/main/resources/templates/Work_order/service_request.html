@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html layout:decorate="layout2"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="utf-8"/>
+<title>Work Order</title>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header2">
+<h2>
+Service Request
+<small></small>
+</h2>
+<ol class="breadcrumb">
+<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+<li class="active"Service Request</li>
+</ol>
+</section>
+
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="box">
+<div class="box-header">
+<h2 class="box-title"></h2>
+    <li class="pull-left header"><i class="fa fa-th"></i><h2>Service Request</h2></li>
+
+<div class="box-tools pull-right">
+<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+</button>
+
+<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+</div>
+</div>
+<div class="box-body">
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tab_11">
+<div class="panel panel-default">
+<form data-toggle="validator" method="post" role="form" th:action="@{/sc_komit}" th:object="${sc}">
+<div class="col-md-15">
+<div class='box-header'>
+<div class="box-body">
+<div class="col-md-12">
+<table class="table table-striped table-bordered table-hover">
+<tr hidden>
+<td>
+<div class="form-group">
+<label for="nama">id_wo</label>
+<input class="form-control" id="id_wo"  readonly
+th:field="*{id_wo}" type="text"/>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">id_asset</label>
+<input class="form-control" id="id_asset"  value="Empty" th:field="*{id_asset}" onchange="fill();" type="text" readonly/>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">id_pm</label>
+<input class="form-control" id="id_pm"  text="Empty" th:field="*{id_pm}" type="text" readonly/>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">id_dept</label>
+<input class="form-control" id="id_dept"  text="Empty" th:field="*{id_dept}" type="text" readonly/>
+</div>
+</td>
+</tr>
+
+<tr>
+<td>
+<div class="form-group">
+<label for="nama">Kode Wo</label>
+<input class="form-control" id="kode_wo" required="true" th:field="*{kode_wo}" type="text" readonly/>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">Nama departemen</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" class="form-control" th:field="*{nama_dept}" id="nama_dept" name="nama_dept" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modep" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">Status Pekerjaan</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select class="form-control" id="status_pekerjaan" required="true" th:field="*{status_pekerjaan}">
+<option th:each="type : ${sc}" th:text="Verified" th:value="'Verified'">Verified</option>
+</select>
+</div>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">Jenis Pekerjaan</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select class="form-control" id="jenis_pekerjaan"
+required="true" th:field="*{jenis_pekerjaan}">
+<option th:each="type : ${sc}"
+th:text="Perbaikan"
+th:value="'Perbaikan'">Perbaikan
+</option>
+<option th:each="type : ${sc}"
+th:text="Permintaan_Baru"
+th:value="'Permintaan_Baru'">Permintaan Baru
+</option>
+</select>
+</div>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">Down Time (Hours)</label>
+<input class="form-control" id="downtime"
+th:field="*{downtime}" type="text"/>
+</div>
+</td>
+    <td>
+        <div class="form-group">
+            <label for="nama">Up Time (Hours)</label>
+            <input class="form-control" id="uptime"
+                   th:field="*{uptime}" type="text"/>
+        </div>
+    </td>
+</tr>
+<tr>
+<td>
+<div class="form-group">
+<label for="nama">Kode Asset</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" class="form-control" th:field="*{kode_asset}" id="kode_asset" name="kode_asset" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modas" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">lokasi</label>
+<input class="form-control" id="lokasi" readonly
+th:field="*{lokasi}" type="text"/>
+</div>
+</td>
+    <td>
+        <div class="form-group">
+            <label for="nama">Tanggal Pembuatan</label>
+            <input class="form-control" id="pembuatan"
+                   th:field="*{pembuatan}"
+                   required="true"
+                   type="text" readonly/>
+        </div>
+
+    </td>
+<td>
+<div class="form-group">
+<label for="nama">Tanggal Pengerjaan</label>
+<input class="form-control" id="tgl_pengerjaan"
+th:field="*{start}"
+type="text"/>
+</div>
+
+</td>
+<td>
+<div class="form-group">
+<label for="nama">Tanggal Selesai</label>
+<input class="form-control" id="tgl_selesai"
+th:field="*{end}"
+type="text"/>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama">Prioritas</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select class="form-control" id="Prioritas"
+required="true" th:field="*{Prioritas}">
+<option th:each="type : ${sc}"
+th:text="Normal"
+th:value="'Normal'">Normal
+</option>
+<option th:each="type : ${sc}"
+th:text="Urgent"
+th:value="'Urgent'">Urgent
+</option>
+
+</select>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table class="table table-striped table-bordered table-hover" width="1000">
+<tr>
+<td>
+<div class="form-group">
+<label for="nama">Issue</label>
+<textarea height="6000" class="form-control" id="issue" name="issue"
+placeholder="issue" required="true" th:field="*{title}"
+type="text"/>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="form-group" hidden>
+<label for="nama">Action</label>
+<textarea height="6000" class="form-control" id="action" name="action"
+placeholder="action" required="true" th:field="*{action}"
+type="text"/>
+</div>
+</td>
+</tr>
+</table>
+    <button  class="btn btn-success btn-lg" name="sc_action" type="submit" value="sc_simpan"><b class="glyphicon glyphicon-floppy-disk"></b> Save
+    </button>
+</div>
+</div>
+</div>
+<!--<span th:replace="Modal_w/modal_wo_all2"/>-->
+    <span th:replace="Modal_w/modal_wo_dept"/>
+    <span th:replace="Modal_w/modal_wo_asset"/>
+<!--<span th:replace="Modal_w/modc"/>-->
+</div>
+<div>
+</div>
+<div>
+</div>
+<div>
+</div>
+
+
+
+
+
+<!--    <tr>-->
+<!--        <button class="btn btn-danger btn-lg" name="sc_action" type="submit" value="sc_hapus">delete-->
+<!--        </button>-->
+<!--    </tr>-->
+</form>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

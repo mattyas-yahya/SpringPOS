@@ -1,0 +1,134 @@
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+        <div class="pull-left image">
+
+            </a>
+        </div>
+        <div class="pull-left info">
+            <a href="#"></a>
+        </div>
+    </div>
+    <!-- search form -->
+
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=0>
+        <li class="header"></li>
+        <li class="active treeview" hidden>
+            <a href="#">
+                <i class="fa   fa-folder"></i> <span>Data Master</span>
+                <span class="pull-right-container">
+<i class="fa fa-angle-left pull-right"></i>
+</span>
+            </a>
+            <ul class="treeview-menu" style="display: block" >
+                <li class="active"><a th:href="@{~/asset}"><i class="fa fa-cubes"></i> Master Asset</a></li>
+                <li><a th:href="@{~/spare_part}"><i class="fa  fa-cubes"></i>Master Spare Part</a></li>
+                <li><a th:href="@{~/PM}"><i class="fa  fa-gear"></i> Preventive Maintenance</a></li>
+                <li><a th:href="@{~/Departemen}"><i class="fa  fa-cubes"></i> Master Departemen</a></li>
+                <li><a th:href="@{~/dashboard/index2.html}"><i class="fa fa-envelope"></i> Master User</a></li>
+            </ul>
+        </li>
+
+        <!--<li class="active treeview" >-->
+        <!--<a href="#">-->
+        <!--<i class="fa  fa-user-plus"></i> <span>Admin Area</span>-->
+        <!--<span class="pull-right-container">-->
+        <!--<i class="fa fa-angle-left pull-right"></i>-->
+        <!--</span>-->
+        <!--</a>-->
+        <!--<ul class="treeview-menu" style="display: block" >-->
+        <!--<li class="active treeview" >-->
+        <!--<a href="#">-->
+        <!--<i class="fa fa-folder"></i> <span>Administration</span>-->
+        <!--<span class="pull-right-container">-->
+        <!--<i class="fa fa-angle-left pull-right"></i>-->
+        <!--</span>-->
+        <!--</a>-->
+        <!--<ul class="treeview-menu" style="display: block" >-->
+        <!--<li><a th:href="@{~/contact}"><i class="fa fa-book"></i>Contact</a></li>-->
+        <!--<li><a th:href="@{~/sales_rep}"><i class="fa fa-user"></i>Sales</a></li>-->
+        <!--<li><a th:href="@{~/campaign}"><i class="fa fa-flag"></i>Campaign</a></li>-->
+        <!--<li><a th:href="@{~/jadwal}"><i class="fa fa-calendar"></i>Schedule</a></li>-->
+        <!--<li><a th:href="@{~/failur}"><i class="fa fa-calendar"></i>Aseet/ Part Failure</a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+
+        <!--<li class="active treeview" >-->
+        <!--<a href="#">-->
+        <!--<i class="fa fa-folder"></i> <span>History</span>-->
+        <!--<span class="pull-right-container">-->
+        <!--<i class="fa fa-angle-left pull-right"></i>-->
+        <!--</span>-->
+        <!--</a>-->
+        <!--<ul class="treeview-menu" style="display: block" >-->
+        <!--<li class="active"><a th:href="@{~/histori}"><i class="fa fa-file-code-o"></i> History Work Order</a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+
+        <!--<li class="active treeview" >-->
+        <!--<a href="#">-->
+        <!--<i class="fa fa-gear"></i> <span>Cost</span>-->
+        <!--<span class="pull-right-container">-->
+        <!--<i class="fa fa-angle-left pull-right"></i>-->
+        <!--</span>-->
+        <!--</a>-->
+        <!--</li>-->
+
+        <!--<li class="active treeview" >-->
+        <!--<a href="#">-->
+        <!--<i class="fa fa-folder"></i> <span>Report</span>-->
+        <!--<span class="pull-right-container">-->
+        <!--<i class="fa fa-angle-left pull-right"></i>-->
+        <!--</span>-->
+        <!--</a>-->
+        <!--<ul class="treeview-menu" style="display: block" >-->
+        <!--<li><a th:href="@{~/report}"><i class="fa fa-file-text-o"></i>Report</a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+        <!--<a type="button" class="btn btn-block btn-danger " th:href="@{~/logout}"><i class="fa fa-power-off"></i>Logout</a>-->
+        <!--</ul>-->
+        <!--</li>-->
+
+        <li class="active"><a th:href="@{~/index/index}"><i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a th:href="@{~/sale}"><i class="glyphicon glyphicon-tag"></i> <span>Sales</span></a></li>
+        <li><a th:href="@{~/barang}"><i class="glyphicon glyphicon-book"></i> <span>Items</span></a></li>
+        <li><a th:href="@{~/Trans}"><i class="glyphicon glyphicon-tags"></i> <span>Log Transaction</span></a></li>
+        <li><a th:href="@{~/transfer}"><i class="glyphicon glyphicon-exclamation-sign"></i> <span>Transfer</span></a></li>
+        <li><a th:href="@{~/adjustment}"><i class="glyphicon glyphicon-briefcase"></i> <span>Adjustment</span></a></li>
+        <!--    <li><a th:href="@{~/contact}"><i class="glyphicon glyphicon-earphone"></i> <span>Contact</span></a></li>-->
+        <!--    <li><a th:href="@{~/contact}"><i class="glyphicon glyphicon-calendar"></i> <span>Schedule</span></a></li>-->
+        <li><a th:href="@{~/logout}"><i class="glyphicon glyphicon-off"></i> <span>Logout</span></a></li>
+        <!--    <a type="button" class="btn btn-block btn-danger " ><i class="fa fa-power-off"></i>Logout</a>-->
+
+
+        <!--<li class="active treeview" >-->
+        <!--<a href="#">-->
+        <!--<i class="fa    fa-user-plus"></i> <span>User Area</span>-->
+        <!--<span class="pull-right-container">-->
+        <!--<i class="fa fa-angle-left pull-right"></i>-->
+        <!--</span>-->
+        <!--</a>-->
+        <!--<ul class="treeview-menu" style="display: block" >-->
+        <!--<li class="active"><a th:href="@{~/service_request}"><i class="fa fa-cubes"></i> Service Request</a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+    </ul>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+
+
+
+
+</section>
+<!-- /.sidebar -->

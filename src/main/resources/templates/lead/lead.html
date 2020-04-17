@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Leads</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="box">
+<div class="box-header">
+    <div class="col-lg-50 col-xs-55">
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h1>Leads</h1>
+            </div>
+            <div class="icon">
+                <i class="glyphicon glyphicon-edit"></i>
+            </div>
+        </div>
+    </div>
+
+<div class="box-tools pull-right">
+<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+</button>
+<div class="btn-group">
+<button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+<i class="fa fa-wrench"></i></button>
+<ul class="dropdown-menu" role="menu">
+
+<li class="divider"></li>
+<li>
+<table class="table table-striped table-bordered table-hover" >
+<tr>
+<td>
+<label>Hide id_asset
+<input type="checkbox" id="1">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="2">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="3">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="4">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="5">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="6">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="m7">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="8">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="9">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="10">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="11">
+</label>
+</td>
+</tr>
+</table></li>
+</ul>
+</div>
+<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+</div>
+</div>
+
+<div class="box-body">
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+    <li ><a href="#tab_3" data-toggle="tab">coba</a></li>
+    <li ><a href="#tab_4" data-toggle="tab">coba</a></li>
+<!--<li ><a id="tab_3x" href="#tab_3" data-toggle="tab">History Maintenance</a></li>-->
+</ul>
+<div class="tab-content">
+<span th:replace="lead/modal_contact"/>
+
+
+
+<div class="tab-pane active" id="tab_1">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabeleads" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id leads</th>
+<th>id Contact</th>
+    <th>Sales Name</th>
+<th>Contact Name</th>
+<th>Company</th>
+<th> Industry </th>
+<th>Phone No</th>
+<th>Leads Status</th>
+<th>Note</th>
+<th>Leads Source</th>
+    <th>Annual Revenue</th>
+</tr>
+</thead>
+<!-- Footer Table -->
+<tfoot>
+<tr>
+    <th>id leads</th>
+    <th>id Contact</th>
+    <th>Sales Name</th>
+    <th>Contact Name</th>
+    <th>Company</th>
+    <th> Industry </th>
+    <th>Phone No</th>
+    <th>Leads Status</th>
+    <th>Note</th>
+    <th>Leads Source</th>
+    <th>Annual Revenue</th>
+</tr>
+</tfoot>
+</table>
+
+<input type=hidden id="a" name="a" value=""/>
+<input type=hidden id="b" name="b" value=""/>
+<input type=hidden id="c" name="c" value=""/>
+<input type=hidden id="d" name="d" value=""/>
+<input type=hidden id="e" name="e" value=""/>
+<input type=hidden id="f" name="f" value=""/>
+<input type=hidden id="g" name="g" value=""/>
+<input type=hidden id="h" name="h" value=""/>
+    <input type=hidden id="i" name="i" value=""/>
+    <input type=hidden id="j" name="j" value=""/>
+    <input type=hidden id="k" name="k" value=""/>
+
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2">
+<form data-toggle="validator" role="form" th:object="${lead}" th:action="@{/le_komit}" method="post">
+<div class="col-md-12">
+<div class='box-header'>
+<div class="box-body">
+
+<div class="col-md-12">
+<table class="table table-striped table-bordered table-hover" >
+<tr hidden>
+<td>
+<div class="form-group" hidden>
+<label for="nama">id_leads</label>
+<input type="text" class="form-control" th:field="*{id_leads}" id="id_leads" readonly />
+</div>
+<div class="form-group" hidden>
+<label for="nama">id_contact</label>
+<input type="text" class="form-control" th:field="*{id_contact}" id="l_id_contact" readonly />
+</div>
+</td>
+</tr>
+
+    <tr><h2>Sales Rep Info</h2></tr>
+    <div class="form-group">
+<label for="nama">Sales Name</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" required="true" class="form-control" th:field="*{sales_name}" id="l_sales_name" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modcon" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+    <tr><h2>Contact Info</h2></tr>
+<tr>
+<td>  <div class="form-group">
+<label for="nama"> Contact Name</label>
+<input type="text" required="true" class="form-control" th:field="*{contact_name}" id="l_contact_name" name="contact_name" placeholder="Masukkan Nama" readonly/>
+</div></td>
+
+<td>  <div class="form-group">
+<label for="nama"> Company</label>
+<input type="text" required="true" class="form-control" th:field="*{company}" id="l_company" name="company" placeholder="Masukkan Nama" readonly/>
+</div></td>
+</tr>
+
+<tr>
+<td> <div class="form-group">
+<label for="nama">Industry</label>
+<input type="text" class="form-control" required="true" th:field="*{industry}" id="l_industry" name="industry" placeholder="industry" readonly/>
+</div></td>
+
+<td> <div class="form-group">
+<label for="nama">Phone No</label>
+<input type="text" class="form-control" required="true" th:field="*{phone_no}" id="l_phone_no" name="phone_no" placeholder="phone_no" readonly/>
+</div></td>
+</tr>
+
+
+
+
+
+</table>
+<table class="table table-striped table-bordered table-hover" >
+<tr><h2>Additional Information</h2></tr>
+<tr>
+
+<td>
+<div class="form-group">
+<label for="nama">Lead Status</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select class="form-control" id="lead_status" required="true" th:field="*{lead_status}">
+<option th:each="type : ${lead}" th:text="New" th:value="'New'">New</option>
+    <option th:each="type : ${lead}" th:text="contacted" th:value="'contacted'">contacted</option>
+    <option th:each="type : ${lead}" th:text="working" th:value="'working'">working</option>
+    <option th:each="type : ${lead}" th:text="qualified" th:value="'qualified'">qualified</option>
+    <option th:each="type : ${lead}" th:text="unqualified" th:value="'unqualified'">unqualified</option>
+
+</select>
+</div>
+</div>
+</td>
+
+
+    <td>
+        <div class="form-group">
+            <label for="nama">Lead Source</label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-id-card"></i>
+                </div>
+                <select class="form-control" id="lead_source" required="true" th:field="*{lead_source}">
+                    <option th:each="type : ${lead}" th:text="Web" th:value="'Web'">Web</option>
+                    <option th:each="type : ${lead}" th:text="Social" th:value="'Social'">Social</option>
+                    <option th:each="type : ${lead}" th:text="Advertising" th:value="'Advertising'">Advertising</option>
+                    <option th:each="type : ${lead}" th:text="Other" th:value="'Other'">Other</option>
+                </select>
+            </div>
+        </div>
+    </td>
+
+    <td> <div class="form-group">
+        <label for="nama">Annual Revenue</label>
+        <input type="text" class="form-control" required="true" th:field="*{annual_revenue}" id="annual_revenue" name="annual_revenue" placeholder="Number"/>
+    </div></td>
+
+</tr>
+    <table  class="table table-striped table-bordered table-hover"  cellspacing="0"
+           width="100%" role="grid" aria-describedby="example_info"
+           style="width: 100%;">
+        <td>
+            <div class="form-group">
+                <label for="nama">Note</label>
+                <textarea height="6000" class="form-control" id="note" name="note"
+                          placeholder="note" required="true" th:field="*{note}"
+                          type="text"/></div>
+        </td>
+    </table>
+</div>
+
+</div>
+</div>
+</div>
+<button class="btn btn-info btn-lg" id="simpan_contact"  type="submit" value="le_simpan" name="le_action"><b class="glyphicon glyphicon-floppy-disk"></b> Post</button>
+<button class="btn btn-danger btn-lg"  type="submit" value="le_hapus" name="le_action"><b class="glyphicon glyphicon-trash"></b> delete</button>
+</form>
+</div>
+    <div class="tab-pane" id="tab_3">
+
+        <table id="tdat"   class="table table-striped table-bordered table-hover" summary="all posts"  cellspacing="0"
+               width="100%" role="grid" aria-describedby="example_info"
+               style="width:100%;">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>nama</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <div class="tab-pane" >
+                <th id="nama">id</th>
+                <th id="id_barang">nama</th>
+                </div>
+            </tr>
+            </tfoot>
+
+        </table>
+
+
+    </div>
+    <div class="tab-pane" id="tab_4">
+        <div class="col-md-6">
+            <table id="tdatax" class="table table-striped table-bordered table-hover"  cellspacing="0"
+                   width="100%" role="grid" aria-describedby="example_info"
+                   style="width: 100%;">
+                <thead>
+                <tr>
+                </tr>
+                </thead>
+                <tbody>
+                <td > <div class="tab-pane" ><h2 id="namax"></h2><h4 text="Harga" id="id_barangx"></h4></div></td>
+                </tbody>
+            </table>
+            <canvas id="myChart" width="2000" height="600"></canvas>
+            <canvas id="ChartLaris" width="2000" height="600"></canvas>
+            <canvas id="ChartMinStok" width="2000" height="600"></canvas>
+
+            <h2 id="nx"></h2>
+            <h2 id="nc"></h2>
+        </div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>

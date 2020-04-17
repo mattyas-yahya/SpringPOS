@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Contact</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="box">
+<div class="box-header">
+
+    <div class="col-lg-50 col-xs-55">
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <h1>Cases</h1>
+            </div>
+            <div class="icon">
+                <i class="fa fa-warning"></i>
+            </div>
+        </div>
+    </div>
+
+<div class="box-tools pull-right">
+<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+</button>
+<div class="btn-group">
+<button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+<i class="fa fa-wrench"></i></button>
+<ul class="dropdown-menu" role="menu">
+
+<li class="divider"></li>
+<li>
+<table class="table table-striped table-bordered table-hover" >
+<tr>
+<td>
+<label>Hide id_asset
+<input type="checkbox" id="1">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="2">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="3">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="4">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="5">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="6">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="m7">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="8">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="9">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="10">
+</label>
+</td>
+<td>
+<label>Hide serial
+<input type="checkbox" id="11">
+</label>
+</td>
+</tr>
+</table></li>
+</ul>
+</div>
+<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+</div>
+</div>
+
+<div class="box-body">
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+<!--<li ><a id="tab_3x" href="#tab_3" data-toggle="tab">History Maintenance</a></li>-->
+</ul>
+<div class="tab-content">
+<span th:replace="cases/modal_contact"/>
+
+
+
+<div class="tab-pane active" id="tab_1">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelcase" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id_case</th>
+<th>id_contact</th>
+<th>sales_name</th>
+<th>contact_name</th>
+<th>company</th>
+<th> industry </th>
+<th>Phone No</th>
+<th>status</th>
+<th>case_origin</th>
+<th>priority</th>
+<th>case_type</th>
+<th>case_reason</th>
+</tr>
+</thead>
+<!-- Footer Table -->
+<tfoot>
+<tr>
+<th>id_case</th>
+<th>id_contact</th>
+<th>sales_name</th>
+<th>contact_name</th>
+<th>company</th>
+<th> industry </th>
+<th>Phone No</th>
+<th>status</th>
+<th>case_origin</th>
+<th>priority</th>
+<th>case_type</th>
+<th>case_reason</th>
+</tr>
+</tfoot>
+</table>
+
+<input type=hidden id="a" name="a" value=""/>
+<input type=hidden id="b" name="b" value=""/>
+<input type=hidden id="c" name="c" value=""/>
+<input type=hidden id="d" name="d" value=""/>
+<input type=hidden id="e" name="e" value=""/>
+<input type=hidden id="f" name="f" value=""/>
+<input type=hidden id="g" name="g" value=""/>
+<input type=hidden id="h" name="h" value=""/>
+<input type=hidden id="i" name="i" value=""/>
+<input type=hidden id="j" name="j" value=""/>
+<input type=hidden id="k" name="k" value=""/>
+<input type=hidden id="l" name="l" value=""/>
+
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2">
+<form data-toggle="validator" role="form" th:object="${cases}" th:action="@{/cas_komit}" method="post">
+<div class="col-md-12">
+<div class='box-header'>
+<div class="box-body">
+
+<div class="col-md-12">
+<table class="table table-striped table-bordered table-hover" >
+<tr><h2>Sales Rep Info</h2></tr>
+<tr hidden>
+<td>
+<div class="form-group" hidden>
+<label for="nama">id_case</label>
+<input type="text" class="form-control" th:field="*{id_case}" id="id_case" readonly />
+</div>
+<div class="form-group" hidden>
+<label for="nama">id_contact</label>
+<input type="text" class="form-control" th:field="*{id_contact}" id="csid_contact" readonly />
+</div>
+</td>
+</tr>
+<tr>
+  <div class="form-group">
+<label for="nama">Sales Name</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" required="true" class="form-control" th:field="*{sales_name}" id="cssales_name" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modcon" data-toggle="modal">Select</button>
+</span>
+</div>
+</div>
+    <tr><h2>Contact Info</h2></tr>
+<td>  <div class="form-group">
+<label for="nama"> Contact Name</label>
+<input type="text" required="true" class="form-control" th:field="*{contact_name}" id="cscontact_name" name="contact_name" placeholder="Masukkan Nama" readonly/>
+</div></td>
+
+<td>  <div class="form-group">
+<label for="nama"> Company</label>
+<input type="text" required="true" class="form-control" th:field="*{company}" id="cscompany" name="company" placeholder="Masukkan Nama" readonly/>
+</div></td>
+</tr>
+
+<tr>
+<td> <div class="form-group">
+<label for="nama">Industry</label>
+<input type="text" class="form-control" required="true" th:field="*{industry}" id="csindustry" name="industry" placeholder="industry" readonly/>
+</div></td>
+
+<td> <div class="form-group">
+<label for="nama">Phone No</label>
+<input type="text" class="form-control" required="true" th:field="*{phone_no}" id="csphone_no" name="phone_no" placeholder="" readonly/>
+</div>
+</td>
+</tr>
+
+
+
+
+
+
+
+</table>
+<table class="table table-striped table-bordered table-hover" >
+<tr><h2>Additional Information</h2></tr>
+<tr>
+
+<td>
+<div class="form-group">
+<label for="nama"> Status</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select class="form-control" id="status" required="true" th:field="*{status}">
+<option th:each="type : ${cases}" th:text="None" th:value="'New'">None</option>
+<option th:each="type : ${cases}" th:text="New_Case" th:value="'New_Case'">New Case</option>
+<option th:each="type : ${cases}" th:text="pending" th:value="'pending'">Pending</option>
+<option th:each="type : ${cases}" th:text="waiting_for_customer_response" th:value="'waiting_for_customer_response'">waiting for customer response</option>
+<option th:each="type : ${cases}" th:text="closed" th:value="'closed'">closed</option>
+</select>
+</div>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama"> Case Origin</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select class="form-control" id="case_origin" required="true" th:field="*{case_origin}">
+<option th:each="type : ${cases}" th:text="None" th:value="'New'">None</option>
+<option th:each="type : ${cases}" th:text="Email" th:value="'Email'">Email</option>
+<option th:each="type : ${cases}" th:text="Phone" th:value="'Phone'">Phone</option>
+<option th:each="type : ${cases}" th:text="Web" th:value="'Web'">Web</option>
+<option th:each="type : ${cases}" th:text="Sms" th:value="'Sms'">Sms</option>
+<option th:each="type : ${cases}" th:text="Other" th:value="'Other'">Other</option>
+</select>
+</div>
+</div>
+</td>
+<td>
+<div class="form-group">
+<label for="nama"> Priority</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<select class="form-control" id="Priority" required="true" th:field="*{Priority}">
+<option th:each="type : ${cases}" th:text="medium" th:value="'medium'">medium</option>
+<option th:each="type : ${cases}" th:text="high" th:value="'high'">high</option>
+<option th:each="type : ${cases}" th:text="critical" th:value="'critical'">critical</option>
+<option th:each="type : ${cases}" th:text="low" th:value="'low'">low</option>
+<option th:each="type : ${cases}" th:text="none" th:value="'none'">none</option>
+</select>
+</div>
+</div>
+</td>
+
+    <td>
+        <div class="form-group">
+            <label for="nama"> Case Type</label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-id-card"></i>
+                </div>
+                <select class="form-control" id="case_type" required="true" th:field="*{case_type}">
+                    <option th:each="type : ${cases}" th:text="none" th:value="'none'">none</option>
+                    <option th:each="type : ${cases}" th:text="problem" th:value="'problem'">problem</option>
+                    <option th:each="type : ${cases}" th:text="feature" th:value="'feature'">feature</option>
+                    <option th:each="type : ${cases}" th:text="request" th:value="'request'">request</option>
+                    <option th:each="type : ${cases}" th:text="question" th:value="'question'">question</option>
+                </select>
+            </div>
+        </div>
+    </td>
+
+
+</tr>
+</table>
+    <table  class="table table-striped table-bordered table-hover"  cellspacing="0"
+           width="100%" role="grid" aria-describedby="example_info"
+           style="width: 100%;">
+        <tr>
+            <td>
+                <div class="form-group">
+                    <label for="nama">Case Reason</label>
+                    <textarea height="6000" class="form-control" id="case_reason" name="case_reason"
+                              placeholder="note" required="true" th:field="*{case_reason}"
+                              type="text"/></div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</div>
+</div>
+</div>
+<button class="btn btn-info btn-lg" id="simpan_contact"  type="submit" value="cas_simpan" name="cas_action"><b class="glyphicon glyphicon-floppy-disk"></b> Post</button>
+<button class="btn btn-danger btn-lg"  type="submit" value="cas_hapus" name="cas_action"><b class="glyphicon glyphicon-trash"></b> delete</button>
+</form>
+</div>
+<div class="tab-pane" id="tab_3">
+<div class='box-body pad'>
+<div class="panel panel-default">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>

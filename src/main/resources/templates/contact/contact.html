@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+layout:decorate="layout">
+<head>
+<meta charset="utf-8" />
+<title>Contact</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<section layout:fragment="header">
+</section>
+<div layout:fragment="content">
+<div class="col-md-12">
+<div class="box">
+<div class="box-header">
+    <div class="col-lg-50 col-xs-55">
+        <div class="small-box bg-purple">
+            <div class="inner">
+                <h1>Contact</h1>
+            </div>
+            <div class="icon">
+                <i class="glyphicon glyphicon-earphone"></i>
+            </div>
+        </div>
+    </div>
+<div class="box-tools pull-right">
+<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+</button>
+<div class="btn-group">
+<button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+<i class="fa fa-wrench"></i></button>
+<ul class="dropdown-menu" role="menu">
+
+<li class="divider"></li>
+<li>
+</ul>
+</div>
+<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+</div>
+</div>
+
+<div class="box-body">
+<div class="nav-tabs-custom">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+<li ><a href="#tab_2" data-toggle="tab">General</a></li>
+<!--<li ><a id="tab_3x" href="#tab_3" data-toggle="tab">History Maintenance</a></li>-->
+</ul>
+<div class="tab-content">
+<span th:replace="contact/modal_sales"/>
+
+
+
+<div class="tab-pane active" id="tab_1">
+<div class='box-body pad'>
+<div class="panel panel-default">
+<table id="tabelcon" class="table table-striped table-bordered table-hover"  cellspacing="0"
+width="100%" role="grid" aria-describedby="example_info"
+style="width: 100%;">
+<!-- Header Table -->
+<thead>
+<tr>
+<th>id_contact</th>
+<th>id_sales</th>
+<th>sales_name</th>
+<th>contact_name</th>
+<th>company</th>
+<th> industry </th>
+<th>Phone No</th>
+<th>Country</th>
+<th>City</th>
+<th>Street</th>
+</tr>
+</thead>
+<!-- Footer Table -->
+<tfoot>
+<tr>
+<th>id_contact</th>
+<th>id_sales</th>
+<th>sales_name</th>
+<th>contact_name</th>
+<th>company</th>
+<th> industry </th>
+<th>Phone No</th>
+<th>Country</th>
+<th>City</th>
+<th>Street</th>
+</tr>
+</tfoot>
+</table>
+
+<input type=hidden id="a" name="a" value=""/>
+<input type=hidden id="b" name="b" value=""/>
+<input type=hidden id="c" name="c" value=""/>
+<input type=hidden id="d" name="d" value=""/>
+<input type=hidden id="e" name="e" value=""/>
+<input type=hidden id="f" name="f" value=""/>
+<input type=hidden id="g" name="g" value=""/>
+<input type=hidden id="h" name="h" value=""/>
+<input type=hidden id="i" name="i" value=""/>
+<input type=hidden id="j" name="j" value=""/>
+
+</div>
+</div>
+</div>
+<div class="tab-pane" id="tab_2">
+<form data-toggle="validator" role="form" th:object="${contact}" th:action="@{/co_komit}" method="post">
+<div class="col-md-12">
+<div class='box-header'>
+<div class="box-body">
+
+<div class="col-md-12">
+<table class="table table-striped table-bordered table-hover" >
+<tr><h2>General Info</h2></tr>
+<tr hidden>
+<td>
+<div class="form-group" hidden>
+<label for="nama">id_contact</label>
+<input type="text" class="form-control" th:field="*{id_contact}" id="id_contact" readonly />
+</div>
+<div class="form-group" hidden>
+<label for="nama">id_sales</label>
+<input type="text" class="form-control" th:field="*{id_sales}" id="id_sales" readonly />
+</div>
+</td>
+</tr>
+<tr>
+<td>  <div class="form-group">
+<label for="nama">Sales Name</label>
+<div class="input-group">
+<div class="input-group-addon">
+<i class="fa fa-id-card"></i>
+</div>
+<input type="text" required="true" class="form-control" th:field="*{sales_name}" id="sales_name" readonly />
+<span class="input-group-btn">
+<button class="btn btn-info btn-flat" type="button" data-target="#modsal" data-toggle="modal">Select</button>
+</span>
+</div>
+</div></td>
+
+<td>  <div class="form-group">
+<label for="nama"> Contact Name</label>
+<input type="text" required="true" class="form-control" th:field="*{contact_name}" id="contact_name" name="contact_name" placeholder="Masukkan Nama"/>
+</div></td>
+
+<td>  <div class="form-group">
+<label for="nama"> Company</label>
+<input type="text" required="true" class="form-control" th:field="*{company}" id="company" name="company" placeholder="Masukkan Nama"/>
+</div></td>
+</tr>
+
+<tr>
+<td> <div class="form-group">
+<label for="nama">Industry</label>
+<input type="text" class="form-control" required="true" th:field="*{industry}" id="industry" name="industry" placeholder="industry"/>
+</div></td>
+
+
+</tr>
+
+
+
+
+
+
+
+</table>
+<table class="table table-striped table-bordered table-hover" >
+    <tr><h2>Address Information</h2></tr>
+    <tr>
+        <td> <div class="form-group">
+            <label for="nama">Phone No</label>
+            <input type="text" class="form-control" required="true" th:field="*{phone_no}" id="c_phone_no" name="phone_no" placeholder=""/>
+        </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <label for="nama">Country</label>
+                <input type="text" class="form-control" required="true" th:field="*{country}" id="country" name="country" placeholder=""/>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <label for="nama">City</label>
+                <input type="text" class="form-control" required="true" th:field="*{city}" id="city" name="city" placeholder=""/>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <label for="nama">Street</label>
+                <input type="text" class="form-control" required="true" th:field="*{Street}" id="Street" name="Street" placeholder=""/>
+            </div>
+        </td>
+    </tr>
+</table>
+
+    <h2>chart js</h2>
+    <canvas id="ChartMinStok" width="2000" height="600"></canvas>
+</div>
+
+</div>
+</div>
+</div>
+<button class="btn btn-info btn-lg" id="simpan_contact"  type="submit" value="co_simpan" name="co_action"><b class="glyphicon glyphicon-floppy-disk"></b> Post</button>
+<!--<button class="btn btn-warning btn-lg"  type="submit" value="ubah" name="action">edit</button>-->
+<button class="btn btn-danger btn-lg"  type="submit" value="co_hapus" name="co_action"><b class="glyphicon glyphicon-trash"></b> delete</button>
+</form>
+</div>
+<div class="tab-pane" id="tab_3">
+<div class='box-body pad'>
+<div class="panel panel-default">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+
+</html>
