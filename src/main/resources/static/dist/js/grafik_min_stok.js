@@ -27,7 +27,7 @@ var cx = document.getElementById('ChartMinStok').getContext('2d');
 
   var getData = function(chartdata) {
     $.ajax({
-      url: 'http://localhost:8081/MinStok',
+      url: 'https://squarepos.herokuapp.com/MinStok',
       success: function(data)
       {
         data.forEach(function(dts)
