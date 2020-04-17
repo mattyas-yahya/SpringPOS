@@ -30,7 +30,7 @@ $(document).ready(function()
   var getData = function(chartdata)
    {
     $.ajax({
-      url: 'http://localhost:8081/BarangStok',//http://localhost:1111/BarangAll
+      url: 'https://squarepos.herokuapp.com/BarangStok',//http://localhost:1111/BarangAll
       success: function(data)
        {
         data.forEach(function(dt)
