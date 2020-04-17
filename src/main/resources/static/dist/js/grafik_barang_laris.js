@@ -27,7 +27,7 @@ var ct = document.getElementById('ChartBarangLaris').getContext('2d');
 
   var getData = function(chartdata) {
     $.ajax({
-      url: 'http://localhost:8081/BarangLaris',
+      url: 'https://squarepos.herokuapp.com/BarangLaris',
       success: function(data)
       {
         data.forEach(function(el)
