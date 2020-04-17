@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.matt.templateQ.TemplateSpringBoot2.model.User;
+import org.springframework.context.annotation.Lazy;
+ 
+@Lazy
 @Service("userService")
 public class UserService
 {
